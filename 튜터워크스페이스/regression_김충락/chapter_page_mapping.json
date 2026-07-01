@@ -1,0 +1,24 @@
+{
+  "_comment": "김충락 회귀분석 교재 챕터-페이지 매핑. PDF 페이지는 1-indexed. 책 페이지 + 16 = PDF 페이지 (offset 16).",
+  "_source_pdf": "C:/Users/kim_y/OneDrive/문서/ADP/회귀분석_김충락.pdf",
+  "_total_pdf_pages": 506,
+  "_offset": 16,
+  "chapters": [
+    {"id": "front",   "title": "머리말+차례",                  "book_pages": "i-xv",   "pdf_start": 1,   "pdf_end": 16,  "n_pages": 16},
+    {"id": "ch01",    "title": "제1장 기초통계이론",            "book_pages": "1-38",   "pdf_start": 17,  "pdf_end": 54,  "n_pages": 38},
+    {"id": "ch02",    "title": "제2장 단순선형회귀모형",         "book_pages": "39-96",  "pdf_start": 55,  "pdf_end": 112, "n_pages": 58},
+    {"id": "ch03",    "title": "제3장 중선형회귀모형",           "book_pages": "97-162", "pdf_start": 113, "pdf_end": 178, "n_pages": 66},
+    {"id": "ch04",    "title": "제4장 회귀진단",                "book_pages": "163-200","pdf_start": 179, "pdf_end": 216, "n_pages": 38},
+    {"id": "ch05",    "title": "제5장 회귀모형의 선택",          "book_pages": "201-230","pdf_start": 217, "pdf_end": 246, "n_pages": 30},
+    {"id": "ch06",    "title": "제6장 선형회귀모형의 변환",       "book_pages": "231-274","pdf_start": 247, "pdf_end": 290, "n_pages": 44},
+    {"id": "ch07",    "title": "제7장 편의추정법",              "book_pages": "275-300","pdf_start": 291, "pdf_end": 316, "n_pages": 26},
+    {"id": "ch08",    "title": "제8장 일반화 선형모형",          "book_pages": "301-328","pdf_start": 317, "pdf_end": 344, "n_pages": 28},
+    {"id": "ch09",    "title": "제9장 일반화 선형모형 II",        "book_pages": "329-358","pdf_start": 345, "pdf_end": 374, "n_pages": 30},
+    {"id": "ch10",    "title": "제10장 비선형회귀모형",          "book_pages": "359-372","pdf_start": 375, "pdf_end": 388, "n_pages": 14},
+    {"id": "ch11",    "title": "제11장 비모수회귀모형",          "book_pages": "373-420","pdf_start": 389, "pdf_end": 436, "n_pages": 48},
+    {"id": "ch12",    "title": "제12장 중도절단자료의 회귀모형",   "book_pages": "421-448","pdf_start": 437, "pdf_end": 464, "n_pages": 28},
+    {"id": "appA",    "title": "부록 A 행렬이론",               "book_pages": "449-472","pdf_start": 465, "pdf_end": 488, "n_pages": 24},
+    {"id": "appB",    "title": "부록 B 통계분포표",             "book_pages": "473-484","pdf_start": 489, "pdf_end": 500, "n_pages": 12},
+    {"id": "ref",     "title": "참고문헌+찾아보기",              "book_pages": "485-",   "pdf_start": 501, "pdf_end": 506, "n_pages": 6}
+  ]
+}

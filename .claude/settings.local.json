@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Rscript --version)",
+      "Bash(Rscript -e 'cat\\(rownames\\(installed.packages\\(\\)\\), sep=\"\\\\n\"\\)')",
+      "Bash(grep -iE \"^\\(car|ez|afex|emmeans|rstatix|tidyr|dplyr|ggplot2\\)$\")",
+      "PowerShell($p = Get-Command Rscript -ErrorAction SilentlyContinue; if\\($p\\){ $p.Source } else { \"Rscript not in PATH\" }; Get-ChildItem \"C:\\\\Program Files\\\\R\" -ErrorAction SilentlyContinue | Select-Object Name)",
+      "PowerShell($rs = \"C:\\\\Program Files\\\\R\\\\R-4.5.2\\\\bin\\\\Rscript.exe\"; & $rs -e 'pkgs<-c\\(\"car\",\"ez\",\"afex\",\"emmeans\",\"rstatix\",\"tidyr\",\"dplyr\"\\); cat\\(sapply\\(pkgs, function\\(p\\) paste0\\(p,\":\",requireNamespace\\(p,quietly=TRUE\\)\\)\\), sep=\"\\\\n\"\\)')",
+      "PowerShell($rs = \"C:\\\\Program Files\\\\R\\\\R-4.5.2\\\\bin\\\\Rscript.exe\"; & $rs \"C:\\\\Users\\\\kim_y\\\\OneDrive\\\\문서\\\\Rprojects\\\\Rbasics\\\\ADP기출문제데이터\\\\exam34\\\\exam34_problem3_analysis.R\")",
+      "PowerShell($rs = \"C:\\\\Program Files\\\\R\\\\R-4.5.2\\\\bin\\\\Rscript.exe\"; & $rs -e 'cat\\(\"ggplot2:\",requireNamespace\\(\"ggplot2\",quietly=TRUE\\),\"\\\\n\"\\)')",
+      "Bash(export PYTHONIOENCODING=utf-8)",
+      "Bash(python -c ' *)",
+      "Bash(mkdir -p /c/Users/kim_y/AppData/Local/Temp/claude/C--Users-kim-y-OneDrive--------/abee527f-66bc-4d02-95a2-9781784d9653/scratchpad)"
+    ]
+  }
+}
