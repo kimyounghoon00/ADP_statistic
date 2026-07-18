@@ -1,1 +1,24 @@
+# === 저작권 자료 (public 저장소에 올리면 안 됨) ===
+# 교재·강의 PDF, 스캔본, 강의 슬라이드
+*.pdf
+*.pptx
+# 교재 원문 추출 텍스트 (verbatim 발췌)
+튜터워크스페이스/과목별/실험설계법/Montgomery_*.txt
+# 교재·웹자료 원문 OCR 및 전체 번역 (파생저작물)
+튜터워크스페이스/과목별/범주형자료분석/_원문_*.md
+튜터워크스페이스/과목별/실험설계법/15.4_반복측정_번역.md
+튜터워크스페이스/과목별/실험설계법/Datanovia_*번역*
+
+# === 개인 파일 ===
+# 사진·메신저 캡처
+*.jpg
+*.jpeg
+# 정체불명 임시 바이너리
+튜터워크스페이스/1780166902694_*
+
+# === 로컬 상태 (기기마다 다름) ===
+.obsidian/workspace.json
+.obsidian/plugins/
+.obsidian/community-plugins.json
+.claude/settings.local.json
 .git_test/

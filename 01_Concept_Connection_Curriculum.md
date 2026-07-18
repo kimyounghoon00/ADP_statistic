@@ -7,7 +7,7 @@ date_created: 2026-06-07
 # 🔗 통계학 개념 연결 커리큘럼 (Concept Connection Curriculum)
 
 > **핵심 철학**: 통계학의 과목 경계는 인위적이다.  
-> 수리통계·회귀분석·실험설계·다변량·시계열은 **공통된 수학적 뿌리**에서 가지를 뻗는다.  
+> 수리통계·회귀분석·실험설계·다변량·시계열·비모수는 **공통된 수학적 뿌리**에서 가지를 뻗는다.  
 > 이 문서는 그 뿌리를 중심으로 클러스터를 묶어 학습 경로를 설계한다.
 
 ---
@@ -36,6 +36,18 @@ Gauss-Markov  ANOVA SS   F-검정     로지스틱    주성분 투영
                                ▼
                            시계열
                           (ARMA 추론)
+
+[분포 가정을 내려놓으면?]
+        │
+        ▼
+   [Cluster G]
+   비모수 추론          ← Kvam & Vidakovic
+  (EDF·순위·부트스트랩)
+     │        │        │
+     ▼        ▼        ▼
+  실험설계   점근이론   회귀분석
+  KW↔ANOVA  부트스트랩  커널회귀
+  (B 교차)   (F 교차)   (김충락 Ch11)
 ```
 
 ---
@@ -120,6 +132,7 @@ Gauss-Markov  ANOVA SS   F-검정     로지스틱    주성분 투영
 - 회귀분석의 Hat Matrix H = X(X'X)⁻¹X' 는 멱등: H² = H
 - ANOVA의 SS 분해 = 다른 멱등 행렬들의 합
 - Cochran 정리 → 각 SS가 독립인 χ² → F분포 유도
+- 정규성 가정을 내려놓으면: Kruskal-Wallis가 순위에서 같은 분해를 재현 → Cluster G (K&V Ch8)
 
 ### 학습 순서 (권장)
 1. `[[다변량 정규분포]]` (Hogg §3.5) — 이차형식 이해의 기반
@@ -291,6 +304,7 @@ Gauss-Markov  ANOVA SS   F-검정     로지스틱    주성분 투영
 - MLE의 점근정규성 → 대표본에서 Wald/Score/LRT 세 검정이 동치
 - 시계열의 단위근 검정은 표준 CLT가 적용되지 않는 예외 (Dickey-Fuller 분포)
 - Delta Method: g(X̄)의 분산 ≈ [g'(μ)]² σ²/n — GLM에서 빈번히 사용
+- 점근 근사가 어려울 때: 부트스트랩이 재표본추출로 표집분포를 직접 근사 → Cluster G (K&V Ch15)
 
 ### 학습 순서 (권장)
 1. `[[확률수렴과 분포수렴]]` (Hogg §5.1–5.2)
@@ -298,6 +312,68 @@ Gauss-Markov  ANOVA SS   F-검정     로지스틱    주성분 투영
 3. `[[MLE의 점근정규성]]` (Hogg §6.1)
 4. `[[우도비 검정과 Wilks 정리]]` (Hogg §6.3, §8.3)
 5. `[[ARIMA 차분과 단위근 검정 (ADF)]]` (Levendis Ch4) — 점근론의 예외 사례
+
+---
+
+## 📌 Cluster G — 비모수 추론 (Nonparametric Inference)
+
+> **핵심 질문**: "분포 가정(정규성) 없이도 추정·검정이 가능한가? 그 대가는 무엇인가?"
+> **주 교재**: Kvam & Vidakovic, *Nonparametric Statistics with Applications to Science and Engineering* (Wiley) — 이하 K&V
+
+### 개념 연결 사슬
+
+```
+[[순서통계량과 표본분위수]]                    ← 수리통계 (Hogg §4.4) + K&V Ch5
+  순위(rank)가 분포무관 추론의 원재료
+            │
+            ▼
+[[경험분포함수(EDF)와 Glivenko-Cantelli]]      ← K&V §3.2, Ch10
+  F̂_n → F 균등수렴: "데이터 자체가 분포의 추정량"
+            │
+            ▼
+[[콜모고로프-스미르노프(KS) 적합도 검정]]      ← K&V Ch6
+  sup|F̂_n - F₀| 의 분포무관성
+            │
+            ▼
+[[순위 검정 — 부호·Wilcoxon·Mann-Whitney]]     ← K&V Ch7
+  t-검정의 분포무관 대응물 (ARE = 0.955)
+            │
+     ┌──────┴──────┬──────────────┐
+     ▼             ▼              ▼
+[[Kruskal-Wallis  [[부트스트랩과   [[커널 밀도추정과
+  ·Friedman 검정]]  잭나이프]]      비모수 회귀]]
+  ← K&V Ch8        ← K&V Ch15     ← K&V Ch11–13
+  ANOVA의 순위판    점근론의 대안    + 회귀분석 (김충락 Ch11)
+  → Cluster B 교차  → Cluster F 교차 국소 가중 LSE
+                                   → Cluster E 교차
+```
+
+### 학습 포인트
+- 순위 검정은 오차 분포를 가정하지 않지만, 정규성이 실제로 성립해도 효율 손실이 작음 (Wilcoxon vs t의 점근상대효율 ARE = 3/π ≈ 0.955)
+- Kruskal-Wallis = 순위에 적용한 일원 ANOVA, Friedman = 순위에 적용한 RCBD — Cluster B의 SS 분해가 순위 세계에서 재현됨
+- 부트스트랩은 Cluster F의 점근 근사(CLT·Delta)를 재표본추출로 대체하는 관점
+- 커널 회귀·스플라인(K&V Ch11–13)은 김충락 Ch11 비모수회귀와 직결 — "LSE를 국소화하면 비모수 회귀"
+
+### 학습 순서 (권장)
+1. `[[순서통계량과 표본분위수]]` (Hogg §4.4, K&V Ch5)
+2. `[[경험분포함수(EDF)와 Glivenko-Cantelli]]` (K&V §3.2)
+3. `[[콜모고로프-스미르노프(KS) 적합도 검정]]` (K&V Ch6)
+4. `[[순위 검정 — 부호·Wilcoxon·Mann-Whitney]]` (K&V Ch7)
+5. `[[Kruskal-Wallis·Friedman 검정]]` (K&V Ch8) — Cluster B 이후면 "ANOVA의 순위판"이 자명해짐
+6. `[[부트스트랩과 잭나이프]]` (K&V Ch15)
+7. `[[커널 밀도추정과 비모수 회귀]]` (K&V Ch11–13, 김충락 Ch11)
+
+### 교재 매핑 (K&V 장 ↔ 기존 커리큘럼)
+
+| K&V 장 | 주제 | 연결되는 클러스터/교재 |
+|--------|------|----------------------|
+| Ch5 순서통계량 | 순위의 분포 이론 | 수리통계 (Hogg §4.4) |
+| Ch6 적합도 | KS·Smirnov·런 검정 | Cluster F (EDF 수렴) |
+| Ch7 순위 검정 | Wilcoxon·Mann-Whitney | t-검정 (Cluster C의 분포무관 대응) |
+| Ch8 실험설계 | Kruskal-Wallis·Friedman | Cluster B (ANOVA SS 분해) |
+| Ch10 분포함수 추정 | Kaplan-Meier·경험우도 | 김충락 Ch12 (중도절단 회귀) |
+| Ch11–13 밀도·곡선적합 | 커널·스플라인 | Cluster E + 김충락 Ch11 (비모수회귀) |
+| Ch15 부트스트랩 | 재표본추출·순열검정 | Cluster F (점근론의 대안) |
 
 ---
 
@@ -315,6 +391,8 @@ Cluster C (우도 기반 추론: NP → LRT → F-검정)
 Cluster D (지수족 → GLM → 베이즈 켤레)
       ↓
 Cluster F (점근 이론 → 시계열 단위근)
+      ↓
+Cluster G (비모수: 가정을 내려놓고 B·E·F를 재조명)
 ```
 
 > 단, 사전식(랜덤) 학습이 원칙이므로 어느 클러스터에서 시작해도 무방합니다.
@@ -332,3 +410,4 @@ Cluster F (점근 이론 → 시계열 단위근)
 | D. 지수족·GLM | 지수족 ↔ GLM ↔ 베이즈 켤레 | 0 / 4 |
 | E. 투영·LSE | LIE ↔ Hat Matrix ↔ PCA | 0 / 5 |
 | F. 점근이론 | CLT ↔ MLE 점근 ↔ 시계열 단위근 | 0 / 5 |
+| G. 비모수 | EDF ↔ 순위검정 ↔ 부트스트랩 ↔ 커널회귀 | 0 / 7 |

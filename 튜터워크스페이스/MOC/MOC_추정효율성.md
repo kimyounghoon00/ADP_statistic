@@ -5,7 +5,7 @@ aliases: [MOC_추정효율성, Estimation Efficiency MOC, Cluster A]
 cluster: A
 tags: [MOC, 추정효율성, GaussMarkov, BLUE, 불편성, 일반선형가설, 부분F검정, ClusterA, Hub]
 date_created: 2026-06-17
-date_modified: 2026-06-29
+date_modified: 2026-07-19
 ---
 
 # 🗺️ MOC — [[추정효율성]] (Estimation Efficiency) · Cluster A
@@ -31,6 +31,7 @@ date_modified: 2026-06-29
 ### ① 불편성 (뿌리)
 - [[회귀계수의 불편성 증명]] — $E[\hat\beta]=\beta$. $\hat\beta=(X^\top X)^{-1}X^\top\mathbf Y$ 의 선형성에서 출발.
 - 핵심 가정: $E[\boldsymbol\varepsilon]=\mathbf 0$, $X$ 비확률(또는 조건부). → 전제 명료화는 가지 ⓪ [[Ch03_선형모형의 확률구조 — 고정설계·모수와 추정량·σ²I]].
+- [[누락변수 편의와 유의성 반전]] — 불편성의 **실패 모드** (2026-07-19 등록): 중요 변수 누락 시 $E[\hat\beta_1]=\beta_1+(X_1^\top X_1)^{-1}X_1^\top X_2\beta_2$, $C_p$ 편의항 $\boldsymbol\mu^\top(I-H)\boldsymbol\mu$ (→ [[Mallows Cp]]). 단독↔다변량 유의성 반전 4패턴(억제·교란·매개·공선성), 전체 F 비유의 + 개별 t 유의의 해석(보호검정·Bonferroni). ADP exam34 #4 index 사례. 가지 ③(부분 F)·④(편의-분산)와 교차.
 
 ### ② 최소분산·효율성 (줄기)
 - [[회귀계수의 분산 유도]] — $\mathrm{Var}(\hat\beta)=\sigma^2 (X^\top X)^{-1}$.
@@ -93,3 +94,10 @@ date_modified: 2026-06-29
 3. **핵심 상태**: 가지 ②에서 `[[Aitken 정리]]` ✅ 완결. `[[Gauss-Markov 정리]]`·`[[회귀계수의 분산 유도]]` 등은 여전히 stub/미완.
 4. **다음 출발점** →: `[[가중최소제곱(WLS)]]` (GLS 대각 특수경우) 또는 `[[Gauss-Markov 정리]]` 본문을 Aitken의 $V=I$ 특수경우로 역방향 정리.
 5. **연결**: 핸드오프 `[[_세션핸드오프_2026-06-29_Aitken_B완결]]` · `[[양의 준정부호 순서(Löwner order)]]`.
+
+## 🔁 이어가기 — 2026-07-19 세션 (누락변수 편의)
+1. **대상**: ADP exam34 문제4 "index가 다변량에서만 유의" 논의 → [[누락변수 편의와 유의성 반전]] 신규 작성, 가지 ①에 등록.
+2. **오늘 한 것**: R 시뮬레이션 3종(교란·억제·대리)으로 유의성 반전 재현. 전체 F 비유의($p=0.154$) + absences t 유의($p=0.032$)의 해석 — 보호검정 원칙·Bonferroni($0.032>0.01$)로 우연 판정. 김충락 Ch5 $\Gamma_p$ 편의항·Ch3 Extra SS와 연결. stub [[Mallows Cp]] 생성.
+3. **핵심 상태**: 노트는 튜터 작성 초안 — 학습자 백지유도 미완. 억제·교란·매개 용어는 교재 밖 확장임을 명시.
+4. **다음 출발점** →: $\Gamma_p = p + \boldsymbol\mu^\top(I-H)\boldsymbol\mu/\sigma^2$ 백지유도, 또는 [[Type I·II·III 제곱합과 부분 F-검정]]과 결합해 반전 현상을 Type I vs III 로 재해석.
+5. **연결**: [[MOC_이차형식]] (편의항이 $(I-H)$ 이차형식) · [[다중공선성]] (패턴 ④).

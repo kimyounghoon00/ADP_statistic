@@ -6,9 +6,11 @@ cluster:
 - B
 - C
 cross_ref:
+- Montgomery §15.4 (반복측정 — pp.677–679) ⭐ 정본
+- Montgomery §14.4 (Split-Plot 설계 — pp.621–627) ⭐ 혼합설계의 이론적 뼈대(두 오차항)
+- Montgomery §13.3 (이요인 혼합모형 — pp.581–587; 개체를 random으로)
 - Montgomery §5 (이원 ANOVA·교호작용)
 - Montgomery §3.5 (다중비교 — Tukey/Bonferroni)
-- Montgomery §13 (랜덤효과 — 개체를 random block으로)
 - Hogg §9.2, §9.5 (ANOVA SS 분해, 교호작용의 이론적 유도)
 tags:
 - 반복측정
@@ -115,6 +117,39 @@ $$\therefore\ e_{ij}=Y_{ij}-\hat Y_{ij}=\boxed{\,Y_{ij}-\bar Y_{\cdot j}-\bar Y_
 $\sum_j e_{ij}=k\bar Y_{i\cdot}-k\bar Y_{\cdot\cdot}-k\bar Y_{i\cdot}+k\bar Y_{\cdot\cdot}=0$ (열 합도 대칭으로 0).
 줄 평균·열 평균을 이미 빼냈으므로 그 방향엔 정보가 없음 → 제약 $n+k-1$개 → 잔차 자유도 $(n-1)(k-1)$.
 이 직교 제약이 [[이차형식과 Cochran 정리]]에서 SS의 독립 $\chi^2$ 분해를 보증.
+
+---
+
+## §15.4 렌즈 — 단일요인 반복측정을 뼈대로 gender 얹기 *(2026-07-17 세션)*
+
+> Montgomery §15.4(Table 15.26)는 **단일요인** 반복측정만 다룬다. 우리 문제(gender 추가)는
+> 그 "Between Subjects" 줄을 gender로 한 번 더 쪼갠 것뿐 — 즉 **§15.4 골격 + split-plot 확장**.
+> 원문 추출: [[Montgomery_15.4_Repeated_Measures]].
+
+### §15.4의 2단 분해 (Table 15.26)
+$$SS_T=\underbrace{SS_{\text{Between Subj}}}_{\text{사람 사이}}+\underbrace{SS_{\text{Within Subj}}}_{\text{한 사람 안}},\qquad
+SS_{\text{Within Subj}}=SS_{\text{Treatments}}+SS_E$$
+$$F_0=\frac{MS_{\text{Treatments}}}{MS_E},\quad df=(a-1,\ (a-1)(n-1))$$
+- Montgomery 결론: **단일요인 반복측정 ≡ RCBD (개체=블록)**. → 본 노트 "개체=random block"과 동일.
+- 핵심 문장(p.678): $\beta_j$가 한 사람의 $a$개 측정에 **공통**이라 $\mathrm{Cov}(y_{ij},y_{i'j})\neq0$.
+  이 공분산이 모든 처리·개체에 걸쳐 **일정하다**는 가정 = 복합대칭([[복합대칭 (Compound Symmetry)]]),
+  구형성은 그보다 약한 조건.
+
+### 자유도가 구조를 증명한다 (n=40명, a=3방법 → exam34 p3)
+| §15.4 줄 | df 공식 | 값 | gender 얹으면 (split-plot) |
+|---|---|---|---|
+| Between Subjects | $n-1$ | **39** | = gender(**1**) + **whole-plot 오차(38)** |
+| Within Subjects | $n(a-1)$ | **80** | = method(**2**) + gender×method(**2**) + **subplot 오차(76)** |
+| Total | $an-1$ | 119 | |
+
+- §15.4 순수 오차 $(a-1)(n-1)=2\times39=\mathbf{78}$ → gender×method가 2를 가져가 $\mathbf{76}$.
+- **`anova_test()` 분모 자유도로 검산**: gender→**38**, method·상호작용→**76**.
+  gender 분모가 38이 아니라 큰 수(예:118)면 `wid=ID` 누락 = `aov(score~gender*method)`와 같은 오류.
+- 두 오차항 중 subplot(76)이 작아 **within(method) 검정력이 더 높다** ← 개인차 SS 분리 효과.
+
+### 결론 문장 템플릿 (C-2 방어)
+> "학습방법은 반복측정 요인이므로 개체(ID)를 블록으로 분리한 혼합 ANOVA를 적용. 개체-간 gender는
+> 개체 간 오차(df=38)로, 개체-내 method·상호작용은 개체 내 오차(df=76)로 검정된다."
 
 ---
 
@@ -285,9 +320,36 @@ within 요인(method) 주효과가 유의하면, **어느 쌍이 다른지** 본
 - [[이원 ANOVA와 교호작용 (Interaction)]] — 상호작용 해석의 기초
 - [[Datanovia_Mixed_ANOVA_R_튜토리얼_번역]] — **이원 → 삼원 혼합설계** 확장(개체간 2+개체내 1, 개체간 1+개체내 2)과 단순·단순단순 효과 분해 절차의 R(`rstatix`) 실습 참조자료
 
-## 참고 교재 페이지
-- Montgomery §14 (반복측정), §5 (이원ANOVA), §3.5 (다중비교) — p.___
+## 참고 교재 페이지 *(2026-07-15 정정)*
+
+> ⚠️ **기존 노트의 "Montgomery §14 = 반복측정"은 오기.** 실제 목차 확인 결과 아래와 같다.
+> (교재: *Design and Analysis of Experiments*, 8th ed., Wiley 2012 / PDF offset = 15, 즉 `PDF idx = 책페이지 + 15`)
+
+| 절 | 제목 | 책 페이지 | 역할 |
+|---|---|---|---|
+| **§15.4** | Repeated Measures | **677–679** | 반복측정의 **정본**. 단 3쪽으로 매우 짧음 |
+| **§14.4** | The Split-Plot Design | **621–627** | ⭐ **혼합설계의 실질적 이론 근거** — 두 오차항 구조 |
+| §14.5 | Other Variations of the Split-Plot Design | 627–637 | 확장 |
+| **§13.3** | The Two-Factor Mixed Model | **581–587** | 개체를 랜덤효과로 보는 관점 |
+| §13.5 | Rules for Expected Mean Squares | 588–592 | EMS 규칙 → 어느 MS로 나눌지 결정 |
+| §5.3 | The Two-Factor Factorial Design | 187–206 | 이원 ANOVA·교호작용 |
+| §3.5 | Practical Interpretation (다중비교) | 89–102 | Tukey/Scheffé/대비 |
+
+- Ch14의 이름은 **"Nested and Split-Plot Designs"**이지 반복측정이 아니다. 그럼에도 이 노트 제목을 유지하는 이유:
+  **혼합설계 반복측정 ANOVA ≡ split-plot 구조** (아래 대응표 참조).
 - Hogg §9.2, §9.5 — p.___
+
+### 혼합설계 ↔ Split-Plot 용어 대응
+
+| 이 문제(exam34 p3) | Split-plot 용어 | 오차항 |
+|---|---|---|
+| 학습자 40명 (ID) | **whole plot** (주구) | — |
+| gender (개체-간) | **whole-plot factor** | whole-plot error, df=38 |
+| method (개체-내) | **subplot factor** (세구) | subplot error, df=76 |
+| gender × method | subplot 수준 상호작용 | subplot error, df=76 |
+
+→ **오차항이 두 개**라서 `anova_test()` 출력의 분모 자유도가 gender는 38, method는 76으로 갈린다.
+subplot error가 whole-plot error보다 작으므로 **within 요인의 검정력이 더 높다** (개체 SS를 분리한 효과).
 
 ---
 
