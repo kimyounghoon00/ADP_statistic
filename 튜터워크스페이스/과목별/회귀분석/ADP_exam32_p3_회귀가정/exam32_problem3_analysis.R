@@ -8,8 +8,23 @@
 library(car)     # vif, ncvTest, crPlots, influencePlot
 library(lmtest)  # bptest, dwtest, bgtest, resettest
 
+# --- 경로 ---------------------------------------------------------------
+# OUT 은 "이 스크립트가 있는 폴더"로 자동 해석한다.
+#   (2026-08-21 수정: 이전에는 삭제된 git worktree 경로가 하드코딩돼 있어
+#    본 볼트에서 실행하면 PNG 저장 단계에서 실패했다. 무결성 검토 F-07)
+script_dir <- function() {
+  a <- commandArgs(trailingOnly = FALSE)
+  f <- grep("^--file=", a, value = TRUE)                    # Rscript 실행
+  if (length(f)) return(dirname(normalizePath(sub("^--file=", "", f[1]))))
+  of <- tryCatch(sys.frames()[[1]]$ofile, error = function(e) NULL)  # source() 실행
+  if (!is.null(of)) return(dirname(normalizePath(of)))
+  getwd()                                                    # 대화형: 작업 디렉터리
+}
+OUT  <- script_dir()
+
+# CSV 원본은 볼트 밖(ADP 기출 데이터 폴더)에 있다. 기기가 바뀌면 이 한 줄만 고친다.
 DATA <- "C:/Users/kim_y/OneDrive/문서/Rprojects/Rbasics/ADP기출문제데이터/exam32/exam32_problem3.csv"
-OUT  <- "C:/Users/kim_y/OneDrive/문서/회귀분석/.claude/worktrees/regression-model-assumptions-6e847f/튜터워크스페이스/과목별/회귀분석/ADP_exam32_p3_회귀가정"
+stopifnot(file.exists(DATA))
 
 df <- read.csv(DATA, header = TRUE)
 cat("=== 데이터 구조 ===\n"); cat("dim:", dim(df), "\n")

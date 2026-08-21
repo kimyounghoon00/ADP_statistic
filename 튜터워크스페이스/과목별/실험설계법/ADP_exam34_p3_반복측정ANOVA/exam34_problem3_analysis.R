@@ -75,7 +75,16 @@ print(as.data.frame(ph))
 # =====================================================================
 cat("\n\n==== [4] 시각화 (PNG 저장) ====\n")
 # PNG는 이 스크립트가 있는 폴더에 저장 (CSV는 원본 ADP 폴더에 유지)
-outdir <- "C:/Users/kim_y/OneDrive/문서/회귀분석/튜터워크스페이스/과목별/실험설계법/ADP_exam34_p3_반복측정ANOVA"
+#   2026-08-21: 하드코딩 절대경로 → 스크립트 상대경로로 교체 (exam32 스크립트와 동일 규칙, 무결성 검토 F-07)
+script_dir <- function() {
+  a <- commandArgs(trailingOnly = FALSE)
+  f <- grep("^--file=", a, value = TRUE)
+  if (length(f)) return(dirname(normalizePath(sub("^--file=", "", f[1]))))
+  of <- tryCatch(sys.frames()[[1]]$ofile, error = function(e) NULL)
+  if (!is.null(of)) return(dirname(normalizePath(of)))
+  getwd()
+}
+outdir <- script_dir()
 # 한글 폰트 (Windows)
 if (.Platform$OS.type == "windows") {
   windowsFonts(malgun = windowsFont("Malgun Gothic")); base_font <- "malgun"

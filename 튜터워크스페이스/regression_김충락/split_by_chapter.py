@@ -21,12 +21,32 @@ import sys
 from pathlib import Path
 
 # ====== 경로 설정 ======
-SCRIPT_DIR = Path(__file__).resolve().parent  # ...\regression_김충락\
-ROOT = SCRIPT_DIR.parent.parent                # ...\ADP\
-SOURCE_PDF = ROOT / "회귀분석_김충락.pdf"
+# 2026-08-21 수정(무결성 검토 F-07): 원본 PDF 위치가 세 곳에서 서로 달라
+#   (스크립트 ROOT / 주석의 ...\ADP\ / mapping json 의 _source_pdf)
+#   지금 실행하면 "원본 PDF 없음"으로 멈췄다. → 후보 경로를 순서대로 탐색하고
+#   --source 로 직접 지정할 수 있게 바꿨다.
+SCRIPT_DIR = Path(__file__).resolve().parent   # <볼트>/튜터워크스페이스/regression_김충락/
+VAULT_ROOT = SCRIPT_DIR.parent.parent          # <볼트>/  (예: ...\문서\회귀분석\)
 MAPPING_JSON = SCRIPT_DIR / "chapter_page_mapping.json"
 OUT_DIR = SCRIPT_DIR / "회귀분석_chapters"
 RAW_DIR = OUT_DIR / "_raw_split"  # OCR 전 임시 분할본
+
+PDF_NAMES = ["회귀분석_김충락.pdf", "Regression Analysis_note (I).pdf"]
+
+
+def find_source_pdf(explicit: str | None, mapping: dict) -> Path | None:
+    """--source > 스크립트 폴더 > 볼트 루트 > mapping의 _source_pdf 순으로 탐색."""
+    if explicit:
+        p = Path(explicit).expanduser()
+        return p if p.exists() else None
+    candidates = [d / n for d in (SCRIPT_DIR, VAULT_ROOT) for n in PDF_NAMES]
+    hinted = mapping.get("_source_pdf")
+    if hinted:
+        candidates.append(Path(hinted))
+    for c in candidates:
+        if c.exists():
+            return c
+    return None
 
 
 # ====== 챕터별 분할 ======
@@ -90,11 +110,9 @@ def main():
     ap.add_argument("--split-only", action="store_true", help="분할만 수행 (OCR 생략)")
     ap.add_argument("--ocr", action="store_true", help="OCR만 수행 (이미 분할된 _raw_split 사용)")
     ap.add_argument("--lang", default="kor+eng", help="OCR 언어 (기본: kor+eng)")
+    ap.add_argument("--source", default=None, help="원본 PDF 경로 (미지정 시 자동 탐색)")
     args = ap.parse_args()
 
-    if not SOURCE_PDF.exists():
-        print(f"[ERROR] 원본 PDF 없음: {SOURCE_PDF}")
-        sys.exit(1)
     if not MAPPING_JSON.exists():
         print(f"[ERROR] 매핑 파일 없음: {MAPPING_JSON}")
         sys.exit(1)
@@ -102,10 +120,21 @@ def main():
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     mapping = json.loads(MAPPING_JSON.read_text(encoding="utf-8"))
 
+    source_pdf = find_source_pdf(args.source, mapping)
+    if source_pdf is None and not args.ocr:
+        print("[ERROR] 원본 PDF를 찾지 못했습니다. 탐색한 곳:")
+        for d in (SCRIPT_DIR, VAULT_ROOT):
+            for n in PDF_NAMES:
+                print(f"   - {d / n}")
+        if mapping.get("_source_pdf"):
+            print(f"   - {mapping['_source_pdf']}  (mapping의 _source_pdf)")
+        print("   → --source <경로> 로 직접 지정할 수 있습니다.")
+        sys.exit(1)
+
     # 1단계: 분할
     if not args.ocr:
         print("\n=== 1단계: 챕터별 분할 ===")
-        split_pdf(SOURCE_PDF, mapping, RAW_DIR)
+        split_pdf(source_pdf, mapping, RAW_DIR)
 
     if args.split_only:
         print("\n분할만 완료. --ocr 옵션으로 OCR 레이어를 추가할 수 있습니다.")

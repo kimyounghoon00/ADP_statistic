@@ -1,12 +1,9 @@
 ---
-aliases: [GLS, 일반화최소제곱, Generalized Least Squares, Aitken 추정량, 표백변환]
+aliases: [GLS, 일반화최소제곱, Generalized Least Squares, Aitken 추정량, 표백변환, "일반화최소제곱법 (GLS)"]
 subject: 회귀분석
 chapter: "일반 GLS는 교재 외 — 교재상 대각 특수경우 WLS가 §6.3 가중최소제곱법(Ch6 변환, p253-254)"
 concept: '[[일반화최소제곱(GLS)]]'
-cluster:
-- 추정법
-- 효율성
-- 오차구조
+cluster: [A]
 tags:
 - 회귀분석
 - GLS
@@ -15,6 +12,7 @@ tags:
 - 표백변환
 - Aitken
 - 효율성
+- ClusterA
 cross_ref:
 - '[[Gauss-Markov 정리]] (V=I 가정 → GLS가 일반화)'
 - '[[회귀계수의 분산 유도]] (샌드위치 분산)'
@@ -22,7 +20,7 @@ cross_ref:
 - '[[Breusch-Pagan 검정]] (등분산 진단 → WLS 처방)'
 - '[[Cholesky 분해]] / [[Aitken 정리]]'
 date_created: "2026-06-28"
-date_modified: "2026-06-29"
+date_modified: 2026-08-21
 status: "백지유도 통과 — LSE 붕괴→표백→GLS 공식"
 ---
 
@@ -34,7 +32,6 @@ status: "백지유도 통과 — LSE 붕괴→표백→GLS 공식"
 
 > [!info] 📖 교재 위치 (2026-06-29 PDF 대조)
 > 김충락·강근석 『회귀분석』 2판에 **"일반화최소제곱(GLS)"·Aitken 정리는 미수록** (색인에 generalized least squares·Aitken 항목 없음). 교재가 비-$\sigma^2 I$ 를 다루는 본문은 **§6.3 가중최소제곱법(WLS)** — 책 253–254쪽(제6장 변환). 거기선 $\text{Cov}(\boldsymbol\varepsilon)=\sigma^2 W^{-1}$($W$ 대각)에 $P^2=W$ 변환으로 $\hat{\boldsymbol\beta}=(X'WX)^{-1}X'W\mathbf y$ 를 얻는다. **본 노트의 일반 $V$ GLS = 그 일반화**($W=V^{-1}$: 대각 → 임의 양정치). 표백변환 $P'P=V^{-1}$ 도 교재의 $P^2=W$($W$ 대각, $P=\sqrt W$)와 동일 구조. [[Gauss-Markov 정리]]·BLUE는 Ch2(p55). → [[가중최소제곱(WLS)]]
-
 ---
 
 ## 1. 동기 — $\text{Cov}(\boldsymbol\varepsilon)\neq\sigma^2 I$
@@ -139,7 +136,7 @@ tags: [회귀분석, GLS, BLUE, 표백변환]
 ```
 
 ## 다음 할 것
-- [ ] [[Aitken 정리]] 백지유도: GLS가 BLUE임을 Gauss-Markov 증명에 표백변환을 얹어 보이기
-- [ ] WLS 별도 정리 (이분산 → 가중치 $w_i=1/\sigma_i^2$)
-- [ ] FGLS의 2단계 절차 ($\hat V$ 추정 → GLS) 와 일치성 조건
-- [ ] Ch4 잔차진단(정규성·등분산·독립성·영향점) MOC + "진단→처방(WLS/GLS)" 연결도
+- [x] ~~[[Aitken 정리]] 백지유도~~ ✅ **2026-06-29 완결** (L·U·B 전부 통과 + 유일성). 체크 누락을 2026-08-21 무결성 검토 F-12에서 갱신
+- [ ] [[가중최소제곱(WLS)]] 별도 정리 (이분산 → 가중치 $w_i=1/\sigma_i^2$, 교재 §6.3 책 253–254)
+- [ ] [[FGLS]]의 2단계 절차 ($\hat V$ 추정 → GLS) 와 일치성 조건
+- [ ] Ch4 잔차진단 MOC — 3축(정규성·등분산·독립성)은 완료, **영향점(`[[Cook's Distance 유도]]`)만 남음** + "진단→처방(WLS/GLS)" 연결도

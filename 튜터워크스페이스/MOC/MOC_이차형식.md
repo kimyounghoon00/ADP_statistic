@@ -5,7 +5,7 @@ aliases: [MOC_이차형식, Quadratic Forms MOC, Cluster B]
 cluster: B
 tags: [MOC, 이차형식, Cochran, HatMatrix, ANOVA, ClusterB, Hub]
 date_created: 2026-06-11
-date_modified: 2026-08-02
+date_modified: 2026-08-21
 ---
 
 # 🗺️ MOC — [[이차형식]] (Quadratic Forms) · Cluster B
@@ -24,13 +24,12 @@ date_modified: 2026-08-02
 ## 🌳 핵심 가지 (Branches)
 
 ### ① 정의·분포 이론 (뿌리)
-- [[이차형식]] — $\mathbf{Y}^\top A\mathbf{Y}$, 기댓값 $E[Q]=\mathrm{tr}(A\Sigma)+\mu^\top A\mu$
-- [[이차형식의 분포와 독립성 (Cochran 정리)]] — 멱등·대칭 $A$ → $\chi^2$; 분해 SS들의 독립성 보증
+- [[이차형식]] — $\mathbf{Y}^\top A\mathbf{Y}$, 기댓값 $E[Q]=\mathrm{tr}(A\Sigma)+\mu^\top A\mu$ *(stub 2026-08-21)*
+- [[이차형식과 Cochran 정리]] — 멱등·대칭 $A$ → $\chi^2$; 분해 SS들의 독립성 보증 *(stub 2026-08-21. **정규명** — "Cochran 정리"·"이차형식의 분포와 독립성 (Cochran 정리)" 등 옛 표기 6종은 별칭으로 흡수)*
 - [[다변량 정규분포 — 二次형식과 독립성]] — Hogg §3.5, 정규성 하에서의 분포 유도
 
 ### ② 투영·멱등 행렬 (기하)
-- [[Hat Matrix]] — $H=X(X^\top X)^{-1}X^\top$, **대칭·멱등** → 투영행렬
-- [[Hat Matrix의 멱등성 및 대칭성]] — $H^2=H,\ H^\top=H$, $\mathrm{tr}(H)=p$ (자유도)
+- [[Hat Matrix]] — $H=X(X^\top X)^{-1}X^\top$, **대칭·멱등** → 투영행렬. $H^2=H,\ H^\top=H$, $\mathrm{tr}(H)=p$ (자유도), 레버리지 $h_{ii}$ *(stub 2026-08-21. 옛 표기 "Hat Matrix의 멱등성 및 대칭성"을 별칭으로 흡수)*
 - [[LIE]] / [[투영]] — 조건부기댓값을 직교투영으로 보는 관점 (Cluster E와 교차)
 
 ### ③ 변동 분해 (ANOVA)
@@ -69,9 +68,16 @@ date_modified: 2026-08-02
 ## 📚 교재 소재 (cross-textbook)
 - Hogg 8판 §9.8–9.9 (이차형식 분포·Cochran), §9.2·§9.5 (ANOVA 분해)
 - 김충락 회귀분석 Ch3–4 (Hat Matrix, 이차형식 — 회귀 맥락)
-- Montgomery 8판 §3 (일원 ANOVA 분해), §14 (반복측정)
+- Montgomery 8판 §3 (일원 ANOVA 분해), **§15.4 (반복측정, 책 677–679)** · §14.4 (split-plot, 책 621–627) — ~~§14 (반복측정)~~ 은 오기였다(2026-07-15 목차 대조)
 
 ---
+
+## 🔁 이어가기 — 2026-08-21 세션 (무결성 검토 조치)
+1. **대상**: `[[2026-08-21_전체_무결성]]` 보고서 조치 — 이 MOC 가지 ①② 의 끊긴 노드 복구.
+2. **오늘 한 것**: 정규 stub 신설 — `[[이차형식]]`(정의·기댓값, 교재 §3.4 책 114–119) · `[[이차형식과 Cochran 정리]]`(★ **6가지 이름으로 흩어져 있던 것을 정규명 하나로 통합**, 옛 표기는 전부 aliases 흡수) · `[[Hat Matrix]]`(← "Hat Matrix의 멱등성 및 대칭성" 흡수, 볼트 최다 참조 개념 15회). Montgomery "§14 반복측정" 오기를 **§15.4** 로 정정.
+3. **핵심 상태**: 세 노트 모두 진술 + 백지유도 과제만 있는 stub. 학습경로 1·2·3번 자리가 채워졌으므로 이제 순서대로 유도해 들어갈 수 있다.
+4. **다음 출발점** →: 학습경로 1번 `[[이차형식]]` — 교재 §3.4 로 진입해 $E[Q]=\operatorname{tr}(A\Sigma)+\mu'A\mu$ 부터 유도.
+5. **연결**: `[[2026-08-21_전체_무결성]]` · `[[MOC_추정효율성]]` · `[[Ch04_ADP32_Boston_회귀가정검토]]`
 
 ## 🔁 이어가기 — 2026-08-02 세션
 1. **대상**: `[[잔차의 직교성과 진단 그림의 가로축]]` (신규 원자노트) · 가지 ⑤ 회귀진단 · 트랙 A

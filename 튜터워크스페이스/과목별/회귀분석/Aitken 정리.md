@@ -4,12 +4,17 @@ subject: 회귀분석
 chapter: "교재 외(고전 결과) — 교재상 관련 절은 §6.3 가중최소제곱법(WLS, 제6장 변환)"
 book_pages: "교재 미수록(Aitken·일반 GLS). 관련: WLS p253-254, Gauss-Markov p55"
 concept: '[[Aitken 정리]]'
-cluster: [추정법, 효율성, BLUE]
-tags: [회귀분석, GLS, BLUE, Aitken, 효율성, 일반화최소제곱, 진행중]
+cross_ref:
+  - "김충락·강근석 『회귀분석』 2판 — 교재 미수록. 관련: §6.3 WLS(책 253–254), Gauss-Markov(Ch2 p.55)"
+  - "[[일반화최소제곱(GLS)]] (직전 흐름 — 표백변환·공식 유도)"
+  - "[[Gauss-Markov 정리]] ($V=I$ 특수경우)"
+  - "[[양의 준정부호 순서(Löwner order)]] · [[행렬 곱의 계수 부등식]] (증명 도구)"
+cluster: [A]
+tags: [회귀분석, GLS, BLUE, Aitken, 효율성, 일반화최소제곱, ClusterA]
 moc: ["[[MOC_추정효율성]]"]
 status: "완료 — L·U·B 전부 통과, GLS=BLUE(유일성까지) 증명 완결 (2026-06-29)"
 date_created: "2026-06-29"
-date_modified: "2026-06-29"
+date_modified: 2026-08-21
 ---
 
 # Aitken 정리 — GLS가 BLUE임을 보이는 정리

@@ -1,7 +1,9 @@
 ---
 subject: 실험설계법
-chapter: Ch14 반복측정 설계 (+ Ch5 이원ANOVA, Ch3.5 다중비교)
+chapter: "§15.4 반복측정 (정본, 책 677–679) + §14.4 split-plot (책 621–627) + §13.3 이요인 혼합모형 · §5.3 이원ANOVA · §3.5 다중비교"
+filename_note: "파일명의 'Ch14' 는 구 표기(§14=반복측정 오기)의 잔재다. 혼합설계 반복측정 ≡ split-plot(§14.4) 이라 제목은 유지하되, 정본 절은 §15.4 다. 링크 보존을 위해 파일명은 바꾸지 않는다."
 concept: '[[반복측정 설계와 구형성 가정 (Mauchly 검정)]]'
+aliases: ["반복측정 설계와 구형성 가정 (Mauchly 검정)", 반복측정 ANOVA, 혼합설계 ANOVA, 구형성, Mauchly 검정, Ch14 반복측정]
 cluster:
 - B
 - C
@@ -25,7 +27,7 @@ tags:
 - ClusterB
 - 실험설계법
 date_created: "2026-06-08"
-date_modified: "2026-06-14"
+date_modified: 2026-08-21
 status: "ADP exam34-문제3 풀이 연계 노트"
 source: ADP기출 exam34 problem3 (40명 x 성별 x 학습방법 3수준)
 ---
@@ -124,7 +126,7 @@ $\sum_j e_{ij}=k\bar Y_{i\cdot}-k\bar Y_{\cdot\cdot}-k\bar Y_{i\cdot}+k\bar Y_{\
 
 > Montgomery §15.4(Table 15.26)는 **단일요인** 반복측정만 다룬다. 우리 문제(gender 추가)는
 > 그 "Between Subjects" 줄을 gender로 한 번 더 쪼갠 것뿐 — 즉 **§15.4 골격 + split-plot 확장**.
-> 원문 추출: [[Montgomery_15.4_Repeated_Measures]].
+> 원문 추출: [[Montgomery_15.4_Repeated_Measures]] 🔒*(로컬 전용 — 저작권으로 저장소 제외)*.
 
 ### §15.4의 2단 분해 (Table 15.26)
 $$SS_T=\underbrace{SS_{\text{Between Subj}}}_{\text{사람 사이}}+\underbrace{SS_{\text{Within Subj}}}_{\text{한 사람 안}},\qquad
@@ -318,7 +320,7 @@ within 요인(method) 주효과가 유의하면, **어느 쌍이 다른지** 본
 - Cluster B(이차형식): [[ANOVA SS 분해]] → 개체 SS를 추가로 분리하는 것이 반복측정
 - [[랜덤효과 모형과 분산성분 추정 (REML)]] — 개체를 random effect로 보는 관점
 - [[이원 ANOVA와 교호작용 (Interaction)]] — 상호작용 해석의 기초
-- [[Datanovia_Mixed_ANOVA_R_튜토리얼_번역]] — **이원 → 삼원 혼합설계** 확장(개체간 2+개체내 1, 개체간 1+개체내 2)과 단순·단순단순 효과 분해 절차의 R(`rstatix`) 실습 참조자료
+- [[Datanovia_Mixed_ANOVA_R_튜토리얼_번역]] 🔒*(로컬 전용 — 번역 파생저작물이라 저장소 제외)* — **이원 → 삼원 혼합설계** 확장(개체간 2+개체내 1, 개체간 1+개체내 2)과 단순·단순단순 효과 분해 절차의 R(`rstatix`) 실습 참조자료
 
 ## 참고 교재 페이지 *(2026-07-15 정정)*
 
@@ -358,6 +360,8 @@ subplot error가 whole-plot error보다 작으므로 **within 요인의 검정�
 2. **오늘 한 것**: ⓐ 본 노트에 "가정 위배 시 대응—심화"(등분산성·정규성) 섹션 + 후속질문 Q1~Q6 보강 ⓑ `exam34_problem3` 디버깅(`shapiro.test`(점,base) → `shapiro_test`(밑줄,rstatix), 패키지 미로드·`suppressPackageStartupMessages` 함정) ⓒ 세션 연속성 도구 신설: `[[이어가기_handoff_템플릿]]`·`[[MOC_이차형식]]` ⓓ 커리큘럼↔MOC 4단 위계 정리
 3. **핵심 상태** ⭐: 도구·문서 골격 완성. **다음 줄부터**: 세 파일(대시보드·커리큘럼·MOC)의 위키링크 *이름 불일치*가 그래프를 조각냄 → 정규 이름 통일 + alias 흡수 작업이 미착수로 남음
 4. **막힌 지점**: 같은 개념이 `[[이차형식과 Cochran 정리]]` / `[[이차형식의 분포와 독립성 (Cochran 정리)]]` 등 3가지 이름으로 흩어짐 — 정규 이름 기준 파일을 무엇으로 할지 미결정
+   - ✅ **2026-08-21 해소**: 정규명을 `[[이차형식과 Cochran 정리]]` 로 확정하고 옛 표기 6종을 별칭으로 흡수했다(무결성 검토 F-02).
+5. **검증**: (템플릿 5번 항목이 누락돼 있던 자리 — 2026-08-21 복원) 이 세션은 문서·인프라 작업이라 수식·수치 검증 대상 없음. 도구 3종(템플릿·MOC·위계표) 생성만 확인.
 6. **다음 출발점** →: Cluster B 개념들의 정규 이름을 커리큘럼 기준으로 통일하고 대시보드·MOC 표기 정렬 (또는 `[[이차형식]]` 원자노트 작성 시작)
 7. **열린 질문**: Q1 정규화 기준 파일 선정·alias 흡수 / Q2 커리큘럼 vs MOC 단일 진실원천 / Q3 6개 MOC 거느리는 커리큘럼 자동목차화
 8. **연결**: `[[MOC_이차형식]]` · `[[01_Concept_Connection_Curriculum]]` · `[[ANOVA SS 분해]]`

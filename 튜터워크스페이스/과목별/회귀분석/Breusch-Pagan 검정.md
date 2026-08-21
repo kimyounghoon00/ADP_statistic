@@ -3,14 +3,15 @@ subject: 회귀분석
 chapter: Ch4 회귀진단
 concept: "[[Breusch-Pagan 검정]]"
 aliases: [BP 검정, 등분산성 검정, Breusch-Pagan, 이분산 검정, 보조회귀 검정]
-cluster: [E]
+cluster: [B, E]
 cross_ref:
   - "김충락·강근석 『회귀분석』 2판 — 제4장 회귀진단"
   - "Breusch & Pagan (1979), Econometrica 47(5), 1287–1294"
   - "Koenker (1981) — 스튜던트화(robust) 버전"
-tags: [회귀분석, 4장, 회귀진단, 등분산성, 이분산, BreuschPagan, 보조회귀, LM검정, ClusterE]
+tags: [회귀분석, 4장, 회귀진단, 등분산성, 이분산, BreuschPagan, 보조회귀, LM검정, ClusterB, ClusterE]
 date_created: 2026-06-23
 status: 완료
+date_modified: 2026-08-21
 ---
 
 # [[Breusch-Pagan 검정]] — Ch4 등분산성 검정

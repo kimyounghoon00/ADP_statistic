@@ -9,6 +9,8 @@ cross_ref:
 tags: [LSE, 불편성, 정규방정식, ClusterE, ClusterA, 회귀분석]
 date_created: YYYY-MM-DD
 status: 예시파일 (실제 공부 후 교체)
+aliases: [Ch02 LSE 정리노트 예시, 정리노트 템플릿 예시]
+date_modified: 2026-08-21
 ---
 
 # [[정규방정식과 LSE 유도]] — Ch2 정리노트

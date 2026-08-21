@@ -1,10 +1,8 @@
 ---
-aliases: [점근표기법, 란다우 표기법, Big-O, little-o, Op, op, 확률적 차수]
+aliases: [점근표기법, 란다우 표기법, Big-O, little-o, Op, op, 확률적 차수, "점근 표기법(Big-O)"]
 subject: 수리통계학 (점근이론 — 공통 도구)
 concept: '[[점근 표기법(Big-O)]]'
-cluster:
-- 점근이론
-- 공통수학도구
+cluster: [F]
 tags:
 - 수리통계학
 - 점근이론
@@ -13,6 +11,7 @@ tags:
 - 확률수렴
 - 일치성
 - 공통도구
+- ClusterF
 cross_ref:
 - '[[Durbin-Watson 검정]] (끝점 항 $O(1/n)\to0$)'
 - '[[Breusch-Pagan 검정]]'
@@ -20,15 +19,15 @@ cross_ref:
 - '[[델타방법(Delta Method)]] (Hogg §5.2.2, Thm 5.2.9)'
 - 'Hogg 『Math Stat』 8th §5.2.2 (테일러+o_p)'
 date_created: "2026-06-28"
-date_modified: "2026-06-28"
+date_modified: 2026-08-21
 status: "공통 도구 노트 — 여러 과목 교차 사용"
 note_분류근거: "회귀분석 고유 개념 아님. 시계열·수리통계·비모수 공통. 그래서 회귀분석 폴더가 아니라 수리통계학(점근이론)에 둠."
+chapter: "Hogg 8판 §5.2.2 (Op·op·Δ-method) — 공통 도구"
 ---
 
 # [[점근 표기법(Big-O)]] — 극한에서의 '크기'를 재는 도구
 
 > **한 줄 핵심**: $O$ 는 "상수배 이내로 같은 속도이거나 더 느림", $o$ 는 "비교 대상에 비해 무시할 만큼 작음". 둘 다 $n\to\infty$ (또는 $x\to0$) **극한에서의 행동**만 본다.
-
 ---
 
 ## 1. 직관 — 두 단어로

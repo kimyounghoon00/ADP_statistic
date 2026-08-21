@@ -3,10 +3,7 @@ aliases: [브로이쉬-갓프리, BG 검정, LM 자기상관 검정, Breusch-God
 subject: 회귀분석
 chapter: Ch4 회귀진단 — 오차항 독립성 (DW의 일반화)
 concept: '[[Breusch-Godfrey 검정]]'
-cluster:
-- 회귀진단
-- 독립성
-- 자기상관
+cluster: [B, E]
 tags:
 - 회귀분석
 - 4장
@@ -16,20 +13,21 @@ tags:
 - BreuschGodfrey
 - LM검정
 - 보조회귀
+- ClusterB
+- ClusterE
 cross_ref:
 - '[[Durbin-Watson 검정]] (BG가 일반화하는 대상)'
 - '[[라그랑주 승수 검정(LM test)]]'
 - '[[AR(1) 과정]] → AR(p)'
 - 'R: lmtest::bgtest'
 date_created: "2026-06-28"
-date_modified: "2026-06-28"
+date_modified: 2026-08-21
 status: "DW 후속 — 일반화된 자기상관 LM 검정"
 ---
 
 # [[Breusch-Godfrey 검정]] — DW를 넘어서는 일반 자기상관 검정
 
 > 한 줄: **"과거 잔차 $e_{t-1},\dots,e_{t-p}$ 가 현재 잔차 $e_t$ 를 설명하는가?"** 를 보조회귀의 $R^2$ 로 묻는 [[라그랑주 승수 검정(LM test)]]. $nR^2\sim\chi^2_p$.
-
 ---
 
 ## 1. 왜 BG인가 — [[Durbin-Watson 검정]]의 세 한계

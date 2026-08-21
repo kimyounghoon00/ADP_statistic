@@ -2,6 +2,7 @@
 aliases: [개념 연결 커리큘럼, Concept Connection Map]
 tags: [통계학, 커리큘럼, 연결학습, Hub]
 date_created: 2026-06-07
+date_modified: 2026-08-21
 ---
 
 # 🔗 통계학 개념 연결 커리큘럼 (Concept Connection Curriculum)
@@ -402,12 +403,17 @@ Cluster G (비모수: 가정을 내려놓고 B·E·F를 재조명)
 
 ## 📝 진행 현황 (Cluster별 완료 체크)
 
-| 클러스터 | 핵심 연결 | 완료 개념 수 |
-|----------|-----------|:------------:|
-| A. 추정 효율성 | CRLB ↔ Gauss-Markov | 0 / 5 |
-| B. 이차형식 | Cochran ↔ ANOVA ↔ Hat Matrix | 0 / 5 |
-| C. 우도 추론 | NP ↔ LRT ↔ F-검정 ↔ GLM | 0 / 5 |
-| D. 지수족·GLM | 지수족 ↔ GLM ↔ 베이즈 켤레 | 0 / 4 |
-| E. 투영·LSE | LIE ↔ Hat Matrix ↔ PCA | 0 / 5 |
-| F. 점근이론 | CLT ↔ MLE 점근 ↔ 시계열 단위근 | 0 / 5 |
-| G. 비모수 | EDF ↔ 순위검정 ↔ 부트스트랩 ↔ 커널회귀 | 0 / 7 |
+*(2026-08-21 갱신 — 그동안 전 클러스터가 0으로 방치돼 있었다. 무결성 검토 F-04)*
+
+| 클러스터 | 핵심 연결 | 완료 개념 수 | 완료 항목 |
+|----------|-----------|:------------:|---|
+| A. 추정 효율성 | CRLB ↔ Gauss-Markov | **2 / 5** | `[[Aitken 정리]]`(GLS=BLUE, 유일성까지) · `[[일반화최소제곱(GLS)]]` |
+| B. 이차형식 | Cochran ↔ ANOVA ↔ Hat Matrix | **2 / 5** | `[[반복측정 설계와 구형성 가정 (Mauchly 검정)]]`(SS 3분할) · `[[잔차의 직교성과 진단 그림의 가로축]]` |
+| C. 우도 추론 | NP ↔ LRT ↔ F-검정 ↔ GLM | 0 / 5 | — |
+| D. 지수족·GLM | 지수족 ↔ GLM ↔ 베이즈 켤레 | 0 / 4 | — |
+| E. 투영·LSE | LIE ↔ Hat Matrix ↔ PCA | **1 / 5** | `[[Ch03_선형모형의 확률구조 — 고정설계·모수와 추정량·σ²I]]` |
+| F. 점근이론 | CLT ↔ MLE 점근 ↔ 시계열 단위근 | **1 / 5** | `[[점근 표기법 (Big-O, little-o, Op, op)]]`(Δ-method 포함) |
+| G. 비모수 | EDF ↔ 순위검정 ↔ 부트스트랩 ↔ 커널회귀 | 0 / 7 | (2026-07-05 골격만) |
+
+> **클러스터 밖 진행분**: 회귀 Ch4 진단 3축(`[[Ch04_잔차가정검정_백지유도]]`·`[[Breusch-Pagan 검정]]`·`[[Durbin-Watson 검정]]`·`[[Breusch-Godfrey 검정]]`) · Type I·II·III 3부작 · `[[누락변수 편의와 유의성 반전]]` · 범주형 Agresti Ch11 2편(`[[McNemar 검정]]`·`[[Cohen의 kappa (관측자 일치도)]]`).
+> 범주형자료분석은 아직 A~G에 매핑되지 않았다 — 다음 허브 세션 결정 사항.

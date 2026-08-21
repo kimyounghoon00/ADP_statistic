@@ -13,6 +13,8 @@ related:
 tags: [일반선형가설, 부분F검정, F통계량, ClusterA, ClusterB, 회귀분석, stub]
 date_created: 2026-06-15
 status: stub (골격만 — 백지유도 대상. 30분 규칙 적용)
+aliases: ["일반선형가설의 F 통계량 도출", 일반선형가설, "부분 F-검정과 전체 F-검정의 관계", "H0: Abeta=c"]
+date_modified: 2026-08-21
 ---
 
 # [[일반선형가설의 F 통계량 도출]]  ·  *stub*

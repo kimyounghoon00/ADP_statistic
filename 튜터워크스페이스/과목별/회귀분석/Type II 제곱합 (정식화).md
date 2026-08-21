@@ -1,6 +1,14 @@
 ---
 aliases: [Type II SS, Type 2 제곱합, 부분제곱합 II, partial SS II]
 tags: [회귀분석, 분산분석, TypeII, 제곱합, 주변성원리]
+cluster: [B, E]
+subject: 회귀분석
+chapter: "Ch3 중선형회귀 (추가제곱합) + Ch5 일반선형가설 / Montgomery §15.2"
+concept: "[[Type II 제곱합 (정식화)]]"
+cross_ref: ["Searle, Linear Models (추가제곱합·추정가능함수)","Nelder (1977) marginality","SAS PROC GLM / car::Anova (containment)"]
+date_created: 2026-06-18
+moc: ["[[MOC_이차형식]]"]
+date_modified: 2026-08-21
 ---
  
 # Type II 제곱합 — 엄밀한 정식화

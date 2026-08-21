@@ -10,6 +10,9 @@ cross_ref:
 tags: [범주형자료분석, McNemar, 대응쌍, 주변동질성, 스코어검정, CMH, 이항검정]
 date_created: 2026-07-14
 status: 완료
+cluster: []
+cluster_note: "범주형자료분석은 아직 커리큘럼 A~G에 매핑되지 않음 (2026-08-21 검토 F-13). 교차점: Cluster C(스코어 검정) · Cluster G(부호검정 동치)"
+date_modified: 2026-08-21
 ---
 
 # [[McNemar 검정]] — 대응쌍 이항자료의 주변동질성 검정
@@ -131,6 +134,6 @@ $(11.1)$ 의 마지막 항 $-2(\pi_{11}\pi_{22}-\pi_{12}\pi_{21})$ 이 핵심.
 - [[조건부 로지스틱 회귀]] — 대응쌍 자료의 모형 기반 일반화 (§11.2).
 
 ## 참고 교재 페이지
-- Agresti, *Categorical Data Analysis*, 3rd ed. (2013), **§11.1, 책 p.413–417** (PDF p.431–435, offset 18) — 스캔본. 전사본: [[_원문_Agresti3e_Ch11_McNemar_Kappa(OCR)]]
+- Agresti, *Categorical Data Analysis*, 3rd ed. (2013), **§11.1, 책 p.413–417** (PDF p.431–435, offset 18) — 스캔본. 전사본: [[_원문_Agresti3e_Ch11_McNemar_Kappa(OCR)]] 🔒*(로컬 전용 — 저작권으로 저장소 제외)*
 - Agresti, *An Introduction to Categorical Data Analysis*, 2nd ed. (2007), **§8.1, 책 p.245–247** (PDF p.265–267, offset 20).
 - McNemar, Q. (1947). "Note on the sampling error of the difference between correlated proportions or percentages." *Psychometrika* 12(2), 153–157.

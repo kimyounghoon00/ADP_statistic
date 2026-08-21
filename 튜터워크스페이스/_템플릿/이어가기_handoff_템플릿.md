@@ -2,6 +2,7 @@
 type: handoff-template
 aliases: [이어가기, 세션 핸드오프, Session Handoff]
 tags: [템플릿, Handoff, Hub]
+date_modified: 2026-08-21
 ---
 
 # 🔖 이어가기(Handoff) 표준 템플릿
@@ -46,7 +47,8 @@ tags: [템플릿, Handoff, Hub]
 
 ### 8. 연결 (Links) — 위키 그래프 확장
 - 뿌리/이웃 개념: `[[ ]]` `[[ ]]`
-- 소속 클러스터(A~F) / MOC: `[[MOC_ ]]`
+- 소속 클러스터(**A~G**) / MOC: `[[MOC_ ]]`
+  - A 추정효율성 · B 이차형식 · C 우도추론 · D 지수족·GLM · E 투영·LSE · F 점근이론 · **G 비모수(2026-07-05 신설)**
 
 ---
 

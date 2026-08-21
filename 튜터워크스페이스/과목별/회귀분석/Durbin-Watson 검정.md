@@ -1,11 +1,9 @@
 ---
-aliases: [더빈왓슨, DW 검정, 잔차 자기상관 검정, 독립성 검정]
+aliases: [더빈왓슨, DW 검정, 잔차 자기상관 검정, 독립성 검정, Durbin-Watson 통계량 유도]
 subject: 회귀분석
 chapter: Ch4 회귀진단 — 오차항 가정 3축 중 ③ 독립성
 concept: '[[Durbin-Watson 검정]]'
-cluster:
-- 회귀진단
-- 독립성
+cluster: [B, E]
 tags:
 - 회귀분석
 - 4장
@@ -15,20 +13,21 @@ tags:
 - DurbinWatson
 - AR1
 - 시계열
+- ClusterB
+- ClusterE
 cross_ref:
 - '[[Breusch-Pagan 검정]] (등분산성 — 같은 잔차기반 진단)'
 - '[[정규성 검정]] (정규성)'
 - 김충락·강근석 『회귀분석』 2판 4장
 - '[[AR(1) 과정]] / 시계열분석 연계'
 date_created: "2026-06-28"
-date_modified: "2026-06-28"
+date_modified: 2026-08-21
 status: "백지유도 통과 — Cochran식 분포론은 후속 과제"
 ---
 
 # [[Durbin-Watson 검정]] — 오차항 독립성 진단
 
 > Ch4 잔차가정 3축: ① 정규성 ✅ → ② [[등분산성(homoscedasticity)]] ✅ → ③ **독립성(이 노트)** ✅
-
 ---
 
 ## ⚠️ 내가 자꾸 틀리는 부분 (2026-06-28 세션 기록)
@@ -182,7 +181,10 @@ $p$-값이 있다는 건 $d$ 가 $H_0$ 하에서 **분포**를 갖는다는 뜻.
 $$d=\frac{\mathbf e'A\mathbf e}{\mathbf e'\mathbf e}=\frac{\boldsymbol\varepsilon'MAM\boldsymbol\varepsilon}{\boldsymbol\varepsilon'M\boldsymbol\varepsilon}\quad(A=\text{1차 차분 삼중대각 행렬})$$
 같은 정규벡터 $\boldsymbol\varepsilon$ 에 대한 두 이차형식의 비.
 
-**(3) 왜 $\chi^2$·$F$ 가 아닌가**: 분모 $\boldsymbol\varepsilon'M\boldsymbol\varepsilon$ 은 $M$ 멱등이라 $\sigma^2\chi^2_{n-p}$ ([[이차형식과 Cochran 정리]], [[Hat Matrix의 멱등성 및 대칭성]]). 그러나 $F$ 가 되려면 분자·분모가 **각각 $\chi^2$ + 서로 독립**이어야 하는데, $MAM$ 은 멱등 아님($A\neq cI$) + 분자·분모가 같은 $\boldsymbol\varepsilon$ 공유로 독립 아님 → 둘 다 깨짐. 그래서 이름 없는 **"이차형식 비"의 분포** (자유도 미분할이라 엄밀히는 베타족; $F$ 는 그 단조변환).
+**(3) 왜 $\chi^2$·$F$ 가 아닌가**: 분모 $\boldsymbol\varepsilon'M\boldsymbol\varepsilon$ 은 $M$ 멱등이라 $\sigma^2\chi^2_{n-p}$ ([[이차형식과 Cochran 정리]], [[Hat Matrix의 멱등성 및 대칭성]]). 그러나 $F$ 가 되려면 분자·분모가 **각각 $\chi^2$ + 서로 독립**이어야 하는데, $MAM$ 은 멱등 아님($A\neq cI$) + 분자·분모가 같은 $\boldsymbol\varepsilon$ 공유로 독립 아님 → 둘 다 깨짐. 그래서 이름 없는 **"이차형식 비"의 분포**다.
+
+> 📌 **정확히 말하면** (2026-08-21 무결성 검토 F-10 교정): $d=\dfrac{\sum_j\nu_j w_j^2}{\sum_j w_j^2}$ ($\nu_j$ = $MAM$ 을 $M$ 의 직교기저로 옮긴 행렬의 고윳값, $w\sim N(0,\sigma^2I)$) 꼴이라, **$\nu_j$ 가 두 값만 가질 때에만** 베타분포가 된다. 일반적으로는 베타가 **아니고**, 그래서 아래 (4)처럼 Imhof 수치적분이 필요하다.
+> 다만 Durbin & Watson(1951) 이래 $d$ 를 $[0,4]$ 로 스케일한 **베타분포로 근사**하는 관행이 널리 쓰인다 — "베타족"은 이 *근사*를 가리키는 말이지 정확분포가 아니다.
 
 **(4) 고유값으로 계산 ([[Imhof 방법]])**: 비를 부등식으로 전환 —
 $$P(d\le d_0)=P\big(\boldsymbol\varepsilon'\underbrace{M(A-d_0 I)M}_{B}\boldsymbol\varepsilon\le 0\big),\qquad \boldsymbol\varepsilon'B\boldsymbol\varepsilon=\sum_j\lambda_j Z_j^2$$

@@ -4,6 +4,12 @@ tags: [회귀분석, 7장, 진단, 다중공선성, stub]
 chapter: ["제7장 편의추정법"]
 book_pages: "275-300"
 moc: ["[[MOC_추정효율성]]"]
+cluster: [A]
+subject: 회귀분석
+concept: "[[분산팽창인자(VIF)]]"
+cross_ref: ["김충락·강근석 『회귀분석』 2판 제7장 편의추정법 (책 275–300)"]
+date_created: 2026-06-29
+date_modified: 2026-08-21
 ---
 
 # 분산팽창인자 (VIF)

@@ -5,6 +5,12 @@ subject: 회귀분석
 source_book: "Montgomery, Design and Analysis of Experiments, Wiley 2012 (8e)"
 date_created: 2026-06-18
 status: 초안 (튜터 작성 — 학습자 백지유도 후 교체)
+cluster: [B]
+chapter: "Montgomery §15.2 (불균형 요인배치) · §15.3.4 (공변량 요인실험)"
+concept: "[[Montgomery 불균형·공변량 ANOVA와 Type I·II·III]]"
+cross_ref: ["Montgomery 8판 §15.2 (책 652–655) · §15.3.4 (책 667–669)","김충락·강근석 『회귀분석』 2판 3장·5장"]
+moc: ["[[MOC_이차형식]]"]
+date_modified: 2026-08-21
 ---
 
 # [[Montgomery 불균형·공변량 ANOVA와 Type I·II·III]]

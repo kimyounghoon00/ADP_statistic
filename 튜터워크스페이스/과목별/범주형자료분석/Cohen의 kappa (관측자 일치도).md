@@ -11,6 +11,9 @@ cross_ref:
 tags: [범주형자료분석, kappa, Cohen, 일치도, agreement, 준독립, 준대칭, 가중kappa]
 date_created: 2026-07-14
 status: 완료
+cluster: []
+cluster_note: "범주형자료분석은 아직 커리큘럼 A~G에 매핑되지 않음 (2026-08-21 검토 F-13). 교차점: Cluster D(로그선형·지수족)"
+date_modified: 2026-08-21
 ---
 
 # [[Cohen의 kappa (관측자 일치도)]] — 우연 일치를 걷어낸 일치도
@@ -140,7 +143,7 @@ $w_{ab}=\mathbb 1(a=b)$ 로 두면 보통의 $\kappa$ 로 환원된다.
 - [[로그선형모형]] — $\tau_{ab}=\exp(\delta_a+\delta_b)$ 의 배경.
 
 ## 참고 교재 페이지
-- Agresti, *Categorical Data Analysis*, 3rd ed. (2013), **§11.5, 책 p.432–436** (PDF p.450–454, offset 18) — 스캔본. 전사본: [[_원문_Agresti3e_Ch11_McNemar_Kappa(OCR)]]
+- Agresti, *Categorical Data Analysis*, 3rd ed. (2013), **§11.5, 책 p.432–436** (PDF p.450–454, offset 18) — 스캔본. 전사본: [[_원문_Agresti3e_Ch11_McNemar_Kappa(OCR)]] 🔒*(로컬 전용 — 저작권으로 저장소 제외)*
 - Agresti, *An Introduction to Categorical Data Analysis*, 2nd ed. (2007), **§8.5.5, 책 p.264** (PDF p.284, offset 20).
 - Cohen, J. (1960). "A coefficient of agreement for nominal scales." *Educational and Psychological Measurement* 20(1), 37–46.
 - Fleiss, J. L., Cohen, J., & Everitt, B. S. (1969). "Large sample standard errors of kappa and weighted kappa." *Psychological Bulletin* 72(5), 323–327.

@@ -4,6 +4,12 @@ tags: [회귀분석, 5장, 모형선택, 예측오차, stub]
 chapter: ["제5장 회귀모형의 선택"]
 book_pages: "201-215 (Fig 5.5 p.215)"
 moc: ["[[MOC_추정효율성]]"]
+cluster: [A]
+subject: 회귀분석
+concept: "[[Mallows Cp]]"
+cross_ref: ["김충락·강근석 『회귀분석』 2판 제5장 §5.1–5.2 (책 201–215, Fig 5.5 p.215)"]
+date_created: 2026-07-19
+date_modified: 2026-08-21
 ---
 
 # Mallows Cp

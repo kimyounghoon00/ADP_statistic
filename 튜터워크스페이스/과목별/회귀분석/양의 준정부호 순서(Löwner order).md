@@ -4,7 +4,12 @@ subject: 선형대수
 tags: [선형대수, 행렬, 양정치, PSD, 순서, 도구, stub]
 moc: ["[[MOC_추정효율성]]"]
 date_created: "2026-06-29"
-date_modified: "2026-06-29"
+date_modified: 2026-08-21
+cluster: []
+cluster_note: "도구 노트 — Cluster A(BLUE 정의)에서 호출"
+chapter: "교재 외 선형대수 도구 (김충락 부록 A.5 이차형식·양정치)"
+concept: "[[양의 준정부호 순서(Löwner order)]]"
+cross_ref: ["[[Aitken 정리]] B단계 · [[Gauss-Markov 정리]] 의 '최소분산' 정의"]
 ---
 
 # 양의 준정부호 순서 (Löwner order)
