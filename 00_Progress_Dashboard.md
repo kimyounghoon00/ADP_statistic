@@ -1,7 +1,7 @@
 ---
 aliases: [진도 대시보드, Progress Dashboard]
 tags: [통계학, Dashboard, Hub]
-date_modified: 2026-06-11
+date_modified: 2026-08-22
 ---
 
 # 📊 통계학 전체 학습 진행 현황 (Progress Dashboard)
@@ -23,9 +23,12 @@ date_modified: 2026-06-11
 ---
 
 ## 🧭 현재 집중 학습 위치 (Current Focus)
-* **과목**: 회귀분석 Cluster A 추정효율성 (GLS·Aitken은 교재 외 고전결과 — 교재 관련: §6.3 WLS, Ch6)
-* **챕터/개념**: `[[Aitken 정리]]` — GLS가 BLUE 증명 ✅ **완결** (2026-06-29, L·U·B 전부 통과 + 유일성)
-* **진행 중인 작업**: 트랙 A 백지유도. **다음 출발점(확정)**: `[[이차형식]]` — 교재 **§3.4 이차형식과 제곱합의 분포(p114–119, Ch3)**. ANOVA·F-검정의 엔진 → `[[이차형식과 Cochran 정리]]`. Cluster B `[[MOC_이차형식]]`. (보류: WLS §6.3) 핸드오프 `[[_세션핸드오프_2026-06-29_Aitken_B완결]]`
+* **과목**: 실험설계법·수리통계 **Cluster B 이차형식** (2026-08-22 Cluster A → B 전환 완료)
+* **챕터/개념**: `[[자기참조적 집단화와 F검정의 함정]]` ✅ **완결** (2026-08-22) — ANOVA를 "새로운 관점"에서. F검정의 **전제조건** 쪽에서 Cluster B 진입. `[[MOC_이차형식]]` **가지 ⑥ 신설**
+* **진행 중인 작업**: 트랙 A 백지유도. **다음 출발점(확정)**: `[[이차형식]]` — 교재 **§3.4 이차형식과 제곱합의 분포(p114–119, Ch3)**. 오늘 "**자유도 = 부분공간의 차원**" 동기 확보됨(케이스 D: 절단점 99개를 뒤졌는데 자유도는 여전히 (1,98)).
+  **첫 질문(미답)**: $\bar X\mathbf 1=P\mathbf X$ 인 $P$ 를 $\mathbf 1$ 만으로 → $P=\frac1n\mathbf{11}^\top$ → $\operatorname{tr}(I-P)=99$
+* **핸드오프**: `[[_세션핸드오프_2026-08-22_ANOVA_자기참조집단화]]` (직전: `[[_세션핸드오프_2026-06-29_Aitken_B완결]]`)
+* **표기 규약**: 채팅은 **유니코드 수식**(터미널 LaTeX 미렌더), 볼트 노트는 **LaTeX**
 
 ---
 
@@ -85,6 +88,8 @@ date_modified: 2026-06-11
 - [ ] `[[공분산과 상관계수]]` §2.5
 
 #### Ch3. Special Distributions (특수분포)
+- [x] `[[표본분포 (Sampling Distribution)]]` §3.6 — 모집단분포/표본/통계량의 분포 3층 구분, $t_\nu=Z/\sqrt{W/\nu}$ ✅ 2026-08-22
+- [ ] `[[절단정규분포 (Truncated Normal)]]` §3.4 — 역밀즈비 (stub)
 - [ ] `[[지수족 (Exponential Family) 정의와 성질]]` §3.6 (t, F, χ²)
 - [ ] `[[다변량 정규분포 — 二次형식과 독립성]]` §3.5
 
@@ -149,7 +154,13 @@ date_modified: 2026-06-11
 
 ### 📙 실험설계법 — Montgomery 8판 챕터 순서
 
+#### Ch1. 서론 · 실험설계 3원칙
+- [x] `[[무작위화 (Randomization)]]` §1.3 — 반복·무작위화·국소관리. 귀무분포 $F(k-1,N-k)$ 의 "자격증" ✅ 2026-08-22
+
 #### Ch2~3. 단일요인 실험 · 일원 ANOVA
+- [x] `[[자기참조적 집단화와 F검정의 함정]]` §3.1–3.3 — 반응변수로 집단을 만들면 효과 없어도 기각률 100% ✅ 2026-08-22
+- [x] `[[Levene 검정]]` · `[[등분산성(homoscedasticity)]]` §3.4.3 — 가정검정 본문 작성 ✅ 2026-08-22
+- [ ] `[[데이터 누출 (Data Leakage)]]` — ADP 실무 체크리스트 (stub)
 - [ ] `[[일원 ANOVA 제곱합 분해 — Montgomery §3]]`
 - [ ] `[[비중심 F분포와 검정력 (Power)]]` §3.4
 - [ ] `[[다중비교 — Tukey, Bonferroni, Fisher LSD]]` §3.5
@@ -303,3 +314,4 @@ date_modified: 2026-06-11
 | 2026-06-29 | [트랙 A] `[[Aitken 정리]]` **B단계 완결 → 증명 종료** ✅. $C=C_{GLS}+D$ 분해 → 불편성 $DX=0$ → $C_{GLS}V=(X'V^{-1}X)^{-1}X'$ 로 교차항 소거 → $X'C_{GLS}'=(C_{GLS}X)'=I$ 로 첫 항=$\text{Var}(\hat\beta_{GLS})$ 확인 → $\text{Var}(\tilde\beta)=\text{Var}(\hat\beta_{GLS})+\sigma^2 DVD'\succeq\text{Var}(\hat\beta_{GLS})$, 유일성($D=0$)까지. (교정: $C=X^{-1}$ 오류 → $X$ 비정사각, $CX=I_p$ 는 왼쪽역행렬). status "완료" 갱신, MOC 등록, 핸드오프 `[[_세션핸드오프_2026-06-29_Aitken_B완결]]` |
 | 2026-06-29 | [검증] **교재 대조** — 김충락 회귀분석 PDF로 Ch3 목차·색인 확인. **GLS·Aitken 교재 미수록** 발견(색인에 generalized least squares·Aitken 없음). 비-$\sigma^2I$ 처방은 §6.3 가중최소제곱법(WLS, p253-254, Ch6)뿐, Gauss-Markov는 Ch2 p55. `[[Aitken 정리]]`·`[[일반화최소제곱(GLS)]]` 의 chapter·book_pages·교재위치 박스를 사실대로 **정정**. |
 | 2026-06-11 | [트랙 A] Ch14 정리노트에 **가정 위배 대응(등분산성·정규성) 심화** 섹션 보강 + `exam34_problem3` R 디버깅(`shapiro.test`→`shapiro_test`, rstatix 로드). **학습 인프라 신설**: `[[이어가기_handoff_템플릿]]`(세션 연속성)·`[[MOC_이차형식]]`(Cluster B 허브). 커리큘럼↔MOC 4단 위계 정리. ⚠️ **다음 출발점**: 세 파일 위키링크 *이름 불일치* 정규화(정규명+alias) — 미착수 |
+| 2026-08-22 | [트랙 A] **Cluster A → B 전환**. "ANOVA를 새로운 관점에서" — 학습자의 $t_{99}$ 오해에서 출발해 `[[표본분포 (Sampling Distribution)]]` 3층 구분 교정 → 학습자가 제안한 $g=\mathbf 1\{X>50\}$ 설명변수를 끝까지 밀어 **F검정의 전제조건**을 역조명. $g$ 가 $\varepsilon$ 의 부호이므로 $\operatorname{Cov}(g,\varepsilon)=\sigma\phi(0)$, 더미 OLS 기울기 $=2\sigma\sqrt{2/\pi}=15.958$ **전부 내생성 편의**, $R^2=2/\pi$. 시뮬 5만 회: 효과 없는데 **기각률 100%** (진짜 효과 3의 검정력 31%보다 높음), Levene 기각률 5.17%로 **진단 전면 무력**. 교정 명제: *ANOVA의 F는 주어진 분할의 기하학적 분해일 뿐이며 귀무분포는 배정이 $Y$ 와 독립할 때만 유도된다 — 데이터가 아니라 설계가 보증한다.* 신규 노트 3(`[[자기참조적 집단화와 F검정의 함정]]`·`[[무작위화 (Randomization)]]`·`[[표본분포 (Sampling Distribution)]]`), 빈 stub 2개 본문 작성(`[[Levene 검정]]`·`[[등분산성(homoscedasticity)]]`), 신규 stub 3(`[[내생성 (Endogeneity)]]`·`[[절단정규분포 (Truncated Normal)]]`·`[[데이터 누출 (Data Leakage)]]`), `[[MOC_이차형식]]` **가지 ⑥ 신설**, 재현 코드+4패널 그림. 핸드오프 `[[_세션핸드오프_2026-08-22_ANOVA_자기참조집단화]]` |
