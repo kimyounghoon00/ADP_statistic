@@ -47,7 +47,8 @@ date_modified: 2026-07-19
 ### ④ 편의를 허용한 효율 (확장 가지)
 - [[능형회귀(Ridge) 추정량 유도]] — $\hat\beta_{\text{ridge}}=(X^\top X+\lambda I)^{-1}X^\top\mathbf y$.
 - [[능형회귀의 편의-분산 분해]] — 약간의 편의를 허용해 전체 MSE를 낮추는 기전. "불편 최소분산"의 한계를 넘는 관점.
-- 연결: [[분산팽창인자(VIF)]] · [[다중공선성]] — 공선성($X^\top X$ 비대각)이 $\mathrm{Var}(\hat\beta)=\sigma^2(X^\top X)^{-1}$ 를 어떻게 부풀리는가.
+- [[주성분회귀(PCR)]] — $X^\top X=V\Lambda V^\top$ 고유분해로 $Z=XV$ 를 만들면 $Z^\top Z=\Lambda$(대각) → 설계행렬을 구조적으로 직교시켜 공선성 자체를 제거. 작은 $\lambda_k$ 성분을 버리는 것이 곧 편의-분산 트레이드오프 (2026-08-21 완료: 유도+`longley` 사용예).
+- 연결: [[분산팽창인자(VIF)]] · [[다중공선성]] — 공선성($X^\top X$ 비대각)이 $\mathrm{Var}(\hat\beta)=\sigma^2(X^\top X)^{-1}$ 를 어떻게 부풀리는가. VIF(2026-08-21)는 이 대각원소를 $R_j^2$ 로 유도·`longley` 예시까지 완결.
 
 ---
 
@@ -66,6 +67,13 @@ date_modified: 2026-07-19
 - Hogg 8판 §6.2 (CRLB·효율성), §7 (충분통계량·UMVUE 맥락).
 
 ---
+
+## 🔁 이어가기 — 2026-08-21 세션 (VIF·PCR 유도 완결)
+1. **대상**: 가지 ④ 편의 추정 — [[분산팽창인자(VIF)]] 본문(stub) 채우기 + [[주성분회귀(PCR)]] 신규 작성.
+2. **오늘 한 것**: ① VIF를 블록행렬(Schur complement)로 $[(X^\top X)^{-1}]_{jj}=1/[\text{SST}_j(1-R_j^2)]$ 유도 → $\text{Var}(\hat\beta_j)=(\sigma^2/\text{SST}_j)\times\text{VIF}_j$ 확립, 표준화 시 $\text{VIF}_j=[R^{-1}]_{jj}$ 특수케이스. ② PCA/PCR: $S=V\Lambda V^\top$ 고유분해 → $Z=XV$ → $Z^\top Z=\Lambda$ 직교성 증명 → $\beta=V\gamma$ 재모수화 → $\text{Cov}(\hat\gamma)=\sigma^2\Lambda^{-1}$ 로 공선성 제거 기전. `longley` 데이터(R)로 VIF 폭발(최대 1788)·고유값(조건수 61.5)·$Z^\top Z$ 대각 확인·$k=2,3,5$ PCR 계수 비교까지 실전 검증.
+3. **핵심 상태**: [[분산팽창인자(VIF)]] · [[주성분회귀(PCR)]] 둘 다 유도+사용예 완료로 상태 갱신. 능형회귀는 여전히 미작성(stub).
+4. **다음 출발점** →: [[능형회귀(Ridge) 추정량 유도]] — $(X^\top X+\lambda I)^{-1}$ 를 PCR의 $\Lambda^{-1}\to(\Lambda+\lambda I)^{-1}$ 관점과 대비해 유도하면 가지 ④가 자연스럽게 이어짐.
+5. **연결**: [[다중공선성]] 대처 표에 PCR 링크 반영 완료.
 
 ## 🔁 이어가기 — 2026-06-17 세션
 1. **대상**: `[[MOC_추정효율성]]` 허브 신규 생성 · Cluster A 백본.

@@ -5,7 +5,7 @@ aliases: [MOC_비모수, Nonparametric Inference MOC, Cluster G]
 cluster: G
 tags: [MOC, 비모수, 순위검정, EDF, 부트스트랩, 커널회귀, ClusterG, Hub]
 date_created: 2026-07-05
-date_modified: 2026-07-05
+date_modified: 2026-08-20
 ---
 
 # 🗺️ MOC — [[비모수 추론]] (Nonparametric Inference) · Cluster G
@@ -32,7 +32,7 @@ date_modified: 2026-07-05
 ### ② 분포무관 검정 (줄기)
 - [[콜모고로프-스미르노프(KS) 적합도 검정]] — sup|F̂_n − F₀|의 분포무관성. (K&V Ch6)
 - [[순위 검정 — 부호·Wilcoxon·Mann-Whitney]] — t-검정의 분포무관 대응물, ARE = 3/π ≈ 0.955. (K&V Ch7)
-- [[Kruskal-Wallis·Friedman 검정]] — 순위에 적용한 일원 ANOVA·RCBD. → Cluster B 교차. (K&V Ch8)
+- [[Kruskal-Wallis·Friedman 검정]] ✅ — 순위에 적용한 일원 ANOVA·RCBD, $H=(N-1)R^2_{\text{rank}}$ 항등식으로 SS 분해 재현 증명. → Cluster B 교차. (K&V §8.1–8.2, 책 p.141–149)
 
 ### ③ 재표본추출 (확장 가지)
 - [[부트스트랩과 잭나이프]] — 점근 근사(CLT·Delta)를 재표본추출로 대체. → Cluster F 교차. (K&V Ch15)
@@ -61,6 +61,13 @@ date_modified: 2026-07-05
 - Hogg 8판 §4.4 (순서통계량), §10 (비모수·로버스트 개관).
 
 ---
+
+## 🔁 이어가기 — 2026-08-20 세션 (가지 ② 첫 노드 통과)
+1. **대상**: `[[Kruskal-Wallis·Friedman 검정]]` 신규 정리노트 생성 (K&V Ch8, 튜터워크스페이스\과목별\비모수통계).
+2. **오늘 한 것**: KW $H=(N-1)R^2_{\text{rank}}$ 항등식 유도(Cluster B 교차의 대수적 실체), Friedman 블록 SS≡0 구조 규명, 동점보정·Iman-Davenport F·Conover-Iman 다중비교 공식을 두 예제(K&V Example 8.1–8.4)로 직접 재계산·검증(자동차 예제는 완전 일치 확인).
+3. **핵심 상태**: 가지 ② 5개 중 1개 통과(Kruskal-Wallis·Friedman). 나머지 ①③④ 미착수.
+4. **다음 출발점** →: 가지 ① [[순서통계량과 표본분위수]] (뿌리, Hogg §4.4 기수강 범위) 또는 가지 ② [[순위 검정 — 부호·Wilcoxon·Mann-Whitney]] (Kruskal-Wallis가 확장한 원형, 순서상 먼저 다루는 것이 자연스러움).
+5. **연결**: `[[Kruskal-Wallis·Friedman 검정]]` · `[[MOC_이차형식]]`(Cluster B 교차) · `[[_MOC자동등록_규칙]]`.
 
 ## 🔁 이어가기 — 2026-07-05 세션 (골격 생성)
 1. **대상**: `[[MOC_비모수]]` 허브 신규 생성 · Cluster G 백본 (교재 K&V 편입에 따른 골격).
