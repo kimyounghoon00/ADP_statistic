@@ -5,7 +5,7 @@ aliases: [MOC_추정효율성, Estimation Efficiency MOC, Cluster A]
 cluster: A
 tags: [MOC, 추정효율성, GaussMarkov, BLUE, 불편성, 일반선형가설, 부분F검정, ClusterA, Hub]
 date_created: 2026-06-17
-date_modified: 2026-07-19
+date_modified: 2026-10-10
 ---
 
 # 🗺️ MOC — [[추정효율성]] (Estimation Efficiency) · Cluster A
@@ -30,6 +30,7 @@ date_modified: 2026-07-19
 
 ### ① 불편성 (뿌리)
 - [[회귀계수의 불편성 증명]] — $E[\hat\beta]=\beta$. $\hat\beta=(X^\top X)^{-1}X^\top\mathbf Y$ 의 선형성에서 출발.
+- [[Ch02_LSE_정리노트_예시]] — LSE·정규방정식 출발 노트 (Cluster E∩A): $\hat\beta=(X^\top X)^{-1}X^\top\mathbf y$ 의 **선형성**이 불편성 증명과 BLUE(가지 ②) 경쟁의 출발점. *(현재 예시 파일 — 실제 공부 후 교체)* **(2026-10-10 연결)**
 - 핵심 가정: $E[\boldsymbol\varepsilon]=\mathbf 0$, $X$ 비확률(또는 조건부). → 전제 명료화는 가지 ⓪ [[Ch03_선형모형의 확률구조 — 고정설계·모수와 추정량·σ²I]].
 - [[누락변수 편의와 유의성 반전]] — 불편성의 **실패 모드** (2026-07-19 등록): 중요 변수 누락 시 $E[\hat\beta_1]=\beta_1+(X_1^\top X_1)^{-1}X_1^\top X_2\beta_2$, $C_p$ 편의항 $\boldsymbol\mu^\top(I-H)\boldsymbol\mu$ (→ [[Mallows Cp]]). 단독↔다변량 유의성 반전 4패턴(억제·교란·매개·공선성), 전체 F 비유의 + 개별 t 유의의 해석(보호검정·Bonferroni). ADP exam34 #4 index 사례. 가지 ③(부분 F)·④(편의-분산)와 교차.
 
@@ -38,6 +39,7 @@ date_modified: 2026-07-19
 - [[Gauss-Markov 정리]] — **BLUE**: 선형불편추정량 중 최소분산. 증명에 이차형식 양정치성 사용 → Cluster B와 교차.
 - [[Aitken 정리]] — **일반화 BLUE**: $\text{Cov}=\sigma^2V$ ($V\neq I$)에서 GLS가 BLUE. Gauss-Markov($V=I$)의 확장. (2026-06-29 **L·U·B 전부 통과 — GLS=BLUE 유일성까지 증명 완결** ✅) → [[일반화최소제곱(GLS)]] 직결.
 - [[크라메르-라오 하한 (CRLB)]] — 정규성 하에서 LSE가 효율적(분산 하한 달성)인가? (Hogg §6.2)
+- [[코시-슈바르츠 부등식]] — 분산 비교의 기본 도구: $\mathrm{Cov}(T,S)^2\le\mathrm{Var}(T)\mathrm{Var}(S)$ 가 **CRLB 증명의 핵심 단계** (score 와의 공분산). 같은 부등식이 $|r|\le1$·Durbin–Watson $|\hat\rho|\le1$ 의 근거. **(2026-10-10 연결)**
 
 ### ③ 검정으로의 확장 — 일반선형가설 (잎, 오늘의 가지)
 - [[일반선형가설의 F 통계량 도출]] — $H_0:A\beta=c$, $F=\dfrac{(A\hat\beta-c)^\top[A(X^\top X)^{-1}A^\top]^{-1}(A\hat\beta-c)/q}{\hat\sigma^2}\sim F_{q,n-p}$.
@@ -101,3 +103,10 @@ date_modified: 2026-07-19
 3. **핵심 상태**: 노트는 튜터 작성 초안 — 학습자 백지유도 미완. 억제·교란·매개 용어는 교재 밖 확장임을 명시.
 4. **다음 출발점** →: $\Gamma_p = p + \boldsymbol\mu^\top(I-H)\boldsymbol\mu/\sigma^2$ 백지유도, 또는 [[Type I·II·III 제곱합과 부분 F-검정]]과 결합해 반전 현상을 Type I vs III 로 재해석.
 5. **연결**: [[MOC_이차형식]] (편의항이 $(I-H)$ 이차형식) · [[다중공선성]] (패턴 ④).
+
+## 🔁 이어가기 — 2026-10-10 세션 (미연결 노트 연결)
+1. **대상**: [[00_MOC_색인]] 신설 시 고아 점검 → 미연결 노트 2개를 이 MOC 에 등록
+2. **오늘 한 것**: 가지 ①에 [[Ch02_LSE_정리노트_예시]] (LSE 선형성 → 불편성·BLUE 출발), 가지 ②에 [[코시-슈바르츠 부등식]] (CRLB 증명 도구) 연결. 노트 파일 이동·이름 변경 없음
+3. **핵심 상태**: [[Ch02_LSE_정리노트_예시]] 는 예시 템플릿(본문 빈칸). [[코시-슈바르츠 부등식]] 은 본문 완성 노트
+4. **다음 출발점** →: [[크라메르-라오 하한 (CRLB)]] 백지유도 시 코시-슈바르츠 Level(공분산 형태)부터 재사용
+5. **연결**: [[00_MOC_색인]] · [[MOC_이차형식]] (가지 ⓪ 에도 LSE 노트 연결)
