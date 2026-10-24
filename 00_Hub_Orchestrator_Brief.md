@@ -68,7 +68,8 @@
 ```
 
 **파일명 규칙**: `Ch[번호]_[개념명약칭]_정리노트.md`
-**Frontmatter 필수 항목**: subject, chapter, concept, cluster, cross_ref, tags, date_created
+**Frontmatter 필수 항목**: subject, chapter, concept, cluster, cross_ref, tags, date_created, status
+**교훈**: 다음에도 쓸 한 줄은 [[_교훈_받은편지함]] 규칙대로 `Rprojects/_meta/lessons.md`에만 적는다. 이 볼트에 받은편지함을 새로 만들지 않는다.
 
 ---
 
