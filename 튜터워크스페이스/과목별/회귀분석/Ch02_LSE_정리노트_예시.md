@@ -8,7 +8,9 @@ cross_ref:
   - "Hogg §6.2 (CRLB — 왜 이 분산이 최소인가)"
 tags: [LSE, 불편성, 정규방정식, ClusterE, ClusterA, 회귀분석]
 date_created: YYYY-MM-DD
-status: 예시파일 (실제 공부 후 교체)
+kind: 예시
+status: stub
+status_note: "실제 공부 후 교체"
 ---
 
 # [[정규방정식과 LSE 유도]] — Ch2 정리노트

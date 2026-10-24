@@ -5,9 +5,10 @@ chapter: "교재 외(고전 결과) — 교재상 관련 절은 §6.3 가중최�
 book_pages: "교재 미수록(Aitken·일반 GLS). 관련: WLS p253-254, Gauss-Markov p55"
 concept: '[[Aitken 정리]]'
 cluster: [추정법, 효율성, BLUE]
-tags: [회귀분석, GLS, BLUE, Aitken, 효율성, 일반화최소제곱, 진행중]
+tags: [회귀분석, GLS, BLUE, Aitken, 효율성, 일반화최소제곱]
 moc: ["[[MOC_추정효율성]]"]
-status: "완료 — L·U·B 전부 통과, GLS=BLUE(유일성까지) 증명 완결 (2026-06-29)"
+status: 정착
+status_note: "L·U·B 전부 통과, GLS=BLUE(유일성까지) 증명 완결 (2026-06-29)"
 date_created: "2026-06-29"
 date_modified: "2026-06-29"
 ---

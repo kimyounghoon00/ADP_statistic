@@ -26,7 +26,9 @@ tags:
 - 실험설계법
 date_created: "2026-06-08"
 date_modified: "2026-06-14"
-status: "ADP exam34-문제3 풀이 연계 노트"
+kind: 연계풀이
+status: 정착
+status_note: "ADP exam34-문제3 풀이 연계 노트"
 source: ADP기출 exam34 problem3 (40명 x 성별 x 학습방법 3수준)
 ---
 

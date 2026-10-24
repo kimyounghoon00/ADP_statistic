@@ -5,7 +5,8 @@ chapter: ["제7장 편의추정법"]
 book_pages: "275-300"
 moc: ["[[MOC_추정효율성]]"]
 date_created: 2026-08-21
-status: 유도+사용예 완료
+status: 정착
+status_note: "유도+사용예 완료"
 ---
 
 # 분산팽창인자 (VIF)

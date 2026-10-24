@@ -22,7 +22,8 @@ cross_ref:
 - '[[AR(1) 과정]] / 시계열분석 연계'
 date_created: "2026-06-28"
 date_modified: "2026-06-28"
-status: "백지유도 통과 — Cochran식 분포론은 후속 과제"
+status: "백지유도 통과"
+status_note: "Cochran식 분포론은 후속 과제"
 ---
 
 # [[Durbin-Watson 검정]] — 오차항 독립성 진단

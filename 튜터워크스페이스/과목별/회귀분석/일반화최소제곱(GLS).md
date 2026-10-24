@@ -23,7 +23,8 @@ cross_ref:
 - '[[Cholesky 분해]] / [[Aitken 정리]]'
 date_created: "2026-06-28"
 date_modified: "2026-06-29"
-status: "백지유도 통과 — LSE 붕괴→표백→GLS 공식"
+status: "백지유도 통과"
+status_note: "LSE 붕괴→표백→GLS 공식"
 ---
 
 # [[일반화최소제곱(GLS)]] — 오차가 $\sigma^2 I$ 가 아닐 때의 BLUE

@@ -10,7 +10,8 @@ cross_ref:
   - "Fox & Weisberg, An R Companion to Applied Regression — car::Anova Type II/III"
 tags: [ANOVA, TypeI_II_III, F검정, 부분F검정, 전체F검정, 이차형식, ClusterB, ClusterE, ClusterA, 회귀분석, ADP기출]
 date_created: 2026-06-15
-status: 초안 (튜터 작성 — 학습자 백지유도 후 교체)
+status: 초안
+status_note: "튜터 작성 — 학습자 백지유도 후 교체"
 source: ADP 기출 exam34 문제4 (lm(score ~ ., data=dat34_4))
 ---
 

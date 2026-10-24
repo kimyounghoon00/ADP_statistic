@@ -9,7 +9,7 @@ cross_ref:
   - "Friedman, M. (1937), '\''The Use of Ranks to Avoid the Assumption of Normality Implicit in the Analysis of Variance,'\'' JASA 32, 675–701"
 tags: [비모수통계, KruskalWallis, Friedman, 순위검정, ANOVA, RCBD, ClusterG]
 date_created: 2026-08-20
-status: 완료
+status: 정착
 ---
 
 # [[Kruskal-Wallis·Friedman 검정]] — 순위로 재현하는 일원·이원 ANOVA

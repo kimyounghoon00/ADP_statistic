@@ -10,7 +10,7 @@ cross_ref:
   - "Fleiss, Cohen & Everitt (1969) — 점근분산; Spitzer et al. (1967) — 가중 kappa"
 tags: [범주형자료분석, kappa, Cohen, 일치도, agreement, 준독립, 준대칭, 가중kappa]
 date_created: 2026-07-14
-status: 완료
+status: 정착
 ---
 
 # [[Cohen의 kappa (관측자 일치도)]] — 우연 일치를 걷어낸 일치도

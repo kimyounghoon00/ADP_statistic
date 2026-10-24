@@ -12,7 +12,8 @@ related:
   - "[[이차형식의 분포와 독립성 (Cochran 정리)]]"
 tags: [일반선형가설, 부분F검정, F통계량, ClusterA, ClusterB, 회귀분석, stub]
 date_created: 2026-06-15
-status: stub (골격만 — 백지유도 대상. 30분 규칙 적용)
+status: stub
+status_note: "골격만 — 백지유도 대상. 30분 규칙 적용"
 ---
 
 # [[일반선형가설의 F 통계량 도출]]  ·  *stub*

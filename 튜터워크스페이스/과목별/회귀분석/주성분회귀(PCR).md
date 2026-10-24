@@ -5,7 +5,8 @@ chapter: ["제7장 편의추정법 (능형회귀 인접 절 추정 — 교재 �
 book_pages: "미확인"
 moc: ["[[MOC_추정효율성]]"]
 date_created: 2026-08-21
-status: 유도+사용예 완료
+status: 정착
+status_note: "유도+사용예 완료"
 ---
 
 # 주성분회귀 (Principal Component Regression, PCR)

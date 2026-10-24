@@ -133,8 +133,10 @@
   cross_ref: [Hogg §6.2, Hogg §2.3]
   tags: [LSE, 불편성, ClusterA, ClusterE]
   date_created: YYYY-MM-DD
+  status: stub
   ---
   ```
+- `status`는 [[_status_어휘]]의 여섯 값만 쓴다. `stub → 초안 → 진행중 → 백지유도 통과 → 정착`, 흔들리면 `재발`. 단계 밖 설명은 `status_note`, 노트 종류는 `kind`.
 
 ---
 
