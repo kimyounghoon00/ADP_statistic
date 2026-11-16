@@ -11,6 +11,7 @@ date_created: YYYY-MM-DD
 kind: 예시
 status: stub
 status_note: "실제 공부 후 교체"
+moc: ["[[MOC_이차형식]]", "[[MOC_추정효율성]]"]
 ---
 
 # [[정규방정식과 LSE 유도]] — Ch2 정리노트

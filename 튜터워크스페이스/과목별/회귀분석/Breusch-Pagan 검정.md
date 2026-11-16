@@ -11,6 +11,7 @@ cross_ref:
 tags: [회귀분석, 4장, 회귀진단, 등분산성, 이분산, BreuschPagan, 보조회귀, LM검정, ClusterE]
 date_created: 2026-06-23
 status: 정착
+moc: ["[[MOC_이차형식]]", "[[MOC_피어슨카이제곱]]"]
 ---
 
 # [[Breusch-Pagan 검정]] — Ch4 등분산성 검정

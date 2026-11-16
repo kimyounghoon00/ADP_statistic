@@ -1,6 +1,7 @@
 ---
 aliases: [Type II SS, Type 2 제곱합, 부분제곱합 II, partial SS II]
 tags: [회귀분석, 분산분석, TypeII, 제곱합, 주변성원리]
+moc: ["[[MOC_이차형식]]"]
 ---
  
 # Type II 제곱합 — 엄밀한 정식화

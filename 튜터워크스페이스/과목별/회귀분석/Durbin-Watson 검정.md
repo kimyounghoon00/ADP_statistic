@@ -24,6 +24,7 @@ date_created: "2026-06-28"
 date_modified: "2026-06-28"
 status: "백지유도 통과"
 status_note: "Cochran식 분포론은 후속 과제"
+moc: ["[[MOC_이차형식]]"]
 ---
 
 # [[Durbin-Watson 검정]] — 오차항 독립성 진단

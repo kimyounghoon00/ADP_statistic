@@ -10,6 +10,7 @@ cross_ref:
 tags: [범주형자료분석, McNemar, 대응쌍, 주변동질성, 스코어검정, CMH, 이항검정]
 date_created: 2026-07-14
 status: 정착
+moc: ["[[MOC_피어슨카이제곱]]"]
 ---
 
 # [[McNemar 검정]] — 대응쌍 이항자료의 주변동질성 검정

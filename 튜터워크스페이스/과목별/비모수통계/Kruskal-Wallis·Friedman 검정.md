@@ -10,6 +10,7 @@ cross_ref:
 tags: [비모수통계, KruskalWallis, Friedman, 순위검정, ANOVA, RCBD, ClusterG]
 date_created: 2026-08-20
 status: 정착
+moc: ["[[MOC_비모수]]"]
 ---
 
 # [[Kruskal-Wallis·Friedman 검정]] — 순위로 재현하는 일원·이원 ANOVA

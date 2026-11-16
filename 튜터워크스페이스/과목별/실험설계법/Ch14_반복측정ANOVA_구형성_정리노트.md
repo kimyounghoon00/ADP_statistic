@@ -30,6 +30,7 @@ kind: 연계풀이
 status: 정착
 status_note: "ADP exam34-문제3 풀이 연계 노트"
 source: ADP기출 exam34 problem3 (40명 x 성별 x 학습방법 3수준)
+moc: ["[[MOC_이차형식]]"]
 ---
 
 # [[반복측정 설계와 구형성 가정 (Mauchly 검정)]] — Ch14 정리노트

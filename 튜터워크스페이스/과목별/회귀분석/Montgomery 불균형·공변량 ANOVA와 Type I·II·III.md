@@ -6,6 +6,7 @@ source_book: "Montgomery, Design and Analysis of Experiments, Wiley 2012 (8e)"
 date_created: 2026-06-18
 status: 초안
 status_note: "튜터 작성 — 학습자 백지유도 후 교체"
+moc: ["[[MOC_이차형식]]"]
 ---
 
 # [[Montgomery 불균형·공변량 ANOVA와 Type I·II·III]]

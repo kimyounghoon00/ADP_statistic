@@ -13,6 +13,7 @@ date_created: 2026-06-15
 status: 초안
 status_note: "튜터 작성 — 학습자 백지유도 후 교체"
 source: ADP 기출 exam34 문제4 (lm(score ~ ., data=dat34_4))
+moc: ["[[MOC_이차형식]]", "[[MOC_추정효율성]]"]
 ---
 
 # [[Type I·II·III 제곱합과 부분 F-검정]]

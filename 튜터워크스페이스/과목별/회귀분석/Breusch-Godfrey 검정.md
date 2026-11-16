@@ -25,6 +25,7 @@ date_created: "2026-06-28"
 date_modified: "2026-06-28"
 status: 초안
 status_note: "DW 후속 — 일반화된 자기상관 LM 검정"
+moc: ["[[MOC_피어슨카이제곱]]"]
 ---
 
 # [[Breusch-Godfrey 검정]] — DW를 넘어서는 일반 자기상관 검정
